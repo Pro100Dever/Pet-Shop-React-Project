@@ -16,6 +16,8 @@ export const ShareContainer = styled.div`
 `
 export const StyledIng = styled.img`
   object-fit: cover;
+  width: fit-content;
+  max-width: 783px;
 `
 export const ShareTitle = styled.h3`
   font-family: Montserrat;
@@ -52,4 +54,14 @@ export const GetBtn = styled.button`
   border-radius: 4px;
   border: none;
   width: 100%;
+`
+export const ErrorText = styled.p`
+  color: red;
+  font-size: 12px;
+  margin-top: -12px;
+`
+
+export const ComplietedText = styled.p`
+  color: white;
+  margin: auto 0;
 `
