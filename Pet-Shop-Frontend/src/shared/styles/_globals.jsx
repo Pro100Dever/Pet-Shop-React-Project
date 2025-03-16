@@ -18,11 +18,18 @@ export const globalStyles = (
         font-size: 20px;
         line-height: 130%;
         letter-spacing: 0%;
+        color: #282828;
       }
       body {
         margin: 0 auto;
         padding-bottom: 80px;
         min-height: 100vh;
+      }
+      main,
+      header,
+      footer {
+        margin: 0 auto;
+        max-width: 1440px;
       }
       ul,
       ol {
