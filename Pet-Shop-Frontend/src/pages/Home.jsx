@@ -1,3 +1,4 @@
+import News from '../components/news/News'
 import Footer from '../layouts/footer/Footer'
 import Header from '../layouts/header/Header'
 
@@ -6,9 +7,9 @@ export default function Home() {
     <>
       <Header />
       <main>
-        {/* <News /> */}
+        <News />
         {/* <AnyList /> */}
-        {/* <Share /> */}
+        <Share />
         {/* <AnyList /> */}
       </main>
       <Footer />
