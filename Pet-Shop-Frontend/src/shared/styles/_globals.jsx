@@ -31,6 +31,11 @@ export const globalStyles = (
         margin: 0 auto;
         max-width: 1440px;
       }
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+      }
       ul,
       ol {
         list-style: none;
