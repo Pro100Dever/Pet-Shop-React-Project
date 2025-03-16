@@ -1,11 +1,11 @@
-import ProductForm from '../../components/productForm/ProductForm'
+// import ProductForm from '../../components/productForm/ProductForm'
 
 export default function Product() {
   return (
     <>
       <Header />
       <main>
-        <PathTree />
+        {/* <PathTree /> */}
         <div>
           <div>
             <img src='' alt='' />
@@ -16,7 +16,7 @@ export default function Product() {
             <img src='' alt='' />
           </div>
           <div>
-            <ProductForm />
+            {/* <ProductForm /> */}
             <p>Description</p>
           </div>
         </div>
@@ -24,6 +24,4 @@ export default function Product() {
       <Footer />
     </>
   )
-}
-{
 }

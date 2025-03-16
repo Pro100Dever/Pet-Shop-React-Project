@@ -3,7 +3,6 @@ export default function Cart() {
     <>
       <Header />
       <main>
-        <PathTree />
         <SectionTitle />
         <div>
           <Cartlist />
