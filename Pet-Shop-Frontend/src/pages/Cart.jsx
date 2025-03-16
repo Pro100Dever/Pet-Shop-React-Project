@@ -9,6 +9,7 @@ export default function Cart() {
           <Cartlist />
           <CartForm />
         </div>
+        {false && <Congratulations />}
       </main>
       <Footer />
     </>
