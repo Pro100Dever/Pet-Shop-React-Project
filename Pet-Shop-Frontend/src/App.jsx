@@ -7,12 +7,12 @@ import DiscountedProducts from './pages/DiscountedProducts'
 import Home from './pages/Home'
 import NotFound from './pages/notFound/NotFound'
 import Product from './pages/product/Product'
+import { globalStyles } from './shared/styles/_globals'
 
 function App() {
   return (
     <>
-      <Home />
-
+      {globalStyles}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/categories' element={<Categories />}>

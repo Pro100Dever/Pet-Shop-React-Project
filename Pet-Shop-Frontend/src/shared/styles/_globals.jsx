@@ -24,6 +24,14 @@ export const globalStyles = (
         padding-bottom: 80px;
         min-height: 100vh;
       }
+      ul,
+      ol {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #282828;
+      }
     `}
   />
 )
