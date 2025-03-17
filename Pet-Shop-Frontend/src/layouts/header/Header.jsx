@@ -18,11 +18,8 @@ export default function Header() {
       </Link>
       <StyledNav>
         <StyledNavLink to='/'>Main Page</StyledNavLink>
-
         <StyledNavLink to='/categories'>Categories</StyledNavLink>
-
         <StyledNavLink to='/allProducts'>All products</StyledNavLink>
-
         <StyledNavLink to='/discountedProducts'>All sales</StyledNavLink>
       </StyledNav>
       <CartContainer>
