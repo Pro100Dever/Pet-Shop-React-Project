@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react'
 import { StyledBtn } from './AnyButton.styles'
 
-export default function AnyButton({ text, activeText, width, type = null }) {
+export default function AnyButton({
+  text,
+  activeText,
+  width = '100%',
+  type = null,
+}) {
   const [currentText, setCurrentText] = useState(text)
   const [isActive, setIsActive] = useState(false)
 

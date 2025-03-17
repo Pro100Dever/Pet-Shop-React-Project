@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
+import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import {
   ErrorText,
-  GetBtn,
   InputContainer,
   StyledForm,
   StyledInput,
@@ -65,7 +65,11 @@ export default function ComplietedForm(setUserData) {
         />
         {errors.email && <ErrorText>{errors.email.message}</ErrorText>}{' '}
       </InputContainer>
-      <GetBtn>Get a discount</GetBtn>
+      <AnyButton
+        text='Get a discount'
+        activeText='Request Submitted'
+        type='negative'
+      />
     </StyledForm>
   )
 }

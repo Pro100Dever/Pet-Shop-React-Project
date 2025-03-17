@@ -22,14 +22,6 @@ export const StyledInput = styled.input`
   }
 `
 
-export const GetBtn = styled.button`
-  padding: 16px 32px;
-  text-align: center;
-  font-weight: 600;
-  border-radius: 4px;
-  border: none;
-  width: 100%;
-`
 export const ErrorText = styled.p`
   color: red;
   font-size: 12px;

@@ -23,12 +23,13 @@ export const theme = {
 
 export const StyledBtn = styled.button`
   ${theme.style}
-  width: ${props => props.width || 'auto'};
+  width: ${props => props.width || '100%'};
   color: ${props => (props.type ? theme.colors.focus : theme.colors.basic)};
   background: ${props =>
     props.type ? theme.background.focus : theme.background.basic};
 
   &:hover {
+    color: ${props => (props.type ? theme.colors.basic : theme.colors.hover)};
     background: ${theme.background.hover};
   }
 
@@ -36,6 +37,7 @@ export const StyledBtn = styled.button`
     color: ${props =>
       props.type ? theme.colors.focusNegative : theme.colors.focus};
     background-color: ${theme.background.focus};
-    border: ${props => props.type && `border: none;`};
+    border: ${props =>
+      !props.type && `border: 1px solid ${theme.colors.focus};`};
   }
 `
