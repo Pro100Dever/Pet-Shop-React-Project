@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import { NewsContainer, NewsTitile, StyledSection } from './News.styles'
 
-export default function () {
+export default function News() {
   return (
     <StyledSection>
       <NewsContainer></NewsContainer>

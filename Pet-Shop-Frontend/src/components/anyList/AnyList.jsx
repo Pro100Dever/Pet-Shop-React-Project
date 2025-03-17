@@ -1,5 +1,6 @@
 import { useCategori } from '../../shared/hooks/useCategori'
 import { useProduct } from '../../shared/hooks/useProduct'
+import { StyledList } from './AnyList.styles'
 import CategoriesListItem from './categoriesList/CategoriesListItem'
 import ProductsListItem from './productsList/ProductListItem'
 
@@ -19,7 +20,7 @@ export default function AnyList({
   const newData = isSuccess ? (home ? data.slice(0, 4) : data) : []
 
   return (
-    <ul>
+    <StyledList>
       {isLoading && <h3>...Loading</h3>}
       {isError && <h3 style={{ color: 'red' }}>Error occurred</h3>}
       {isSuccess &&
@@ -29,9 +30,9 @@ export default function AnyList({
           ) : hook === 'products' ? (
             <ProductsListItem key={listItem.id} listItem={listItem} />
           ) : (
-            <h3>Error</h3>
+            <h3>Ошибка</h3>
           )
         )}
-    </ul>
+    </StyledList>
   )
 }

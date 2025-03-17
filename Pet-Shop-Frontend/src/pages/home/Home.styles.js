@@ -1,5 +1,8 @@
 import styled from '@emotion/styled'
 
+export const StyledSection = styled.section`
+  padding: 0 40px;
+`
 export const TitleContainer = styled.div`
   width: 100%;
   display: flex;
