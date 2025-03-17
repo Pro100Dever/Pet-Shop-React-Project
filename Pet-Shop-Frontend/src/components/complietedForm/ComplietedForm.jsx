@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useSubmitUser } from '../../shared/hooks/useSubmitUser'
 import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import {
   ErrorText,
@@ -7,20 +9,36 @@ import {
   StyledInput,
 } from './ComplietedForm.styles'
 
-export default function ComplietedForm(setUserData) {
-  // const { setUserData } = setUserData
+export default function ComplietedForm({ setIsSuccess }) {
+  const { succesForBtn, setSuccesForBtn } = useState(false)
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    number: '',
+    email: '',
+  })
+  const { mutate, isPending, isSuccess } = useSubmitUser(userInfo)
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
 
+  useEffect(() => {
+    if (isSuccess) {
+      setIsSuccess(true)
+      setSuccesForBtn(true)
+    }
+  }, [isSuccess])
+
   const onSubmit = data => {
-    setUserData(data)
-    console.log(JSON.stringify(data))
+    setUserInfo(data)
+    mutate()
   }
 
-  return (
+  return isPending ? (
+    <h3>...Pending</h3>
+  ) : (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <InputContainer>
         <StyledInput
@@ -69,6 +87,7 @@ export default function ComplietedForm(setUserData) {
         text='Get a discount'
         activeText='Request Submitted'
         type='negative'
+        succesForBtn={succesForBtn}
       />
     </StyledForm>
   )

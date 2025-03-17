@@ -1,17 +1,29 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-const getCategories = async categoriesId => {
-  return axios.get(
-    `http://localhost:3333/categories/${categoriesId && categoriesId}`
-  )
-}
 
-export function useCategori(categoriesId = null) {
-  const { data, isLoading, isSuccess, IsError } = useQuery({
-    queryKey: ['categories', categoriesId && categoriesId],
+const getCategories = async categoriesId => {
+  try {
+    return await axios.get(`http://localhost:3333/categories/${categoriesId}`)
+  } catch (error) {
+    console.log(error)
+  }
+}
+export function useCategori(categoriesId = 'all') {
+  let { data, isLoading, isSuccess, isError } = useQuery({
+    queryKey: ['categories', categoriesId],
     queryFn: () => getCategories(categoriesId),
     select: data => data.data,
   })
 
-  return { data, isLoading, isSuccess, IsError }
+  function checkIsErr() {
+    if (isSuccess) {
+      if (data.status === 'ERR') {
+        isError = true
+        isSuccess = false
+        return isError, isSuccess
+      }
+    }
+  }
+  checkIsErr()
+  return { data, isLoading, isSuccess, isError }
 }
