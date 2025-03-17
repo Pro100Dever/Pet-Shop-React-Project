@@ -27,6 +27,15 @@ export default function Home() {
         </StyledSection>
         <Share />
         <StyledSection>
+          <TitleContainer>
+            <SectionTitle text='Sale' />
+            <StyledLinie />
+            <NavtTreeLink
+              text='All sales'
+              path='/discountedProducts'
+              home='home'
+            />
+          </TitleContainer>
           <AnyList hook='products' home='home' />
         </StyledSection>
       </main>
