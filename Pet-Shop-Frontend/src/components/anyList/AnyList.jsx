@@ -1,30 +1,37 @@
-import { Link } from 'react-router-dom'
 import { useCategori } from '../../shared/hooks/useCategori'
+import { useProduct } from '../../shared/hooks/useProduct'
+import CategoriesListItem from './categoriesList/CategoriesListItem'
+import ProductsListItem from './productsList/ProductListItem'
 
-export default function AnyList(categori = 'all', home = false) {
-  const BASE_URL = 'http://localhost:3333/'
-  let { data, isLoading, isSuccess, isError } = useCategori()
+export default function AnyList({
+  home = null,
+  hook = null,
+  categoriId = 'all',
+  productId = 'all',
+}) {
+  const { data, isLoading, isSuccess, isError } =
+    hook === 'categories'
+      ? useCategori(categoriId)
+      : hook === 'products'
+      ? useProduct(productId)
+      : { data: [], isLoading: false, isSuccess: false, isError: true }
 
-  if (isSuccess) {
-    if (!home) {
-      data.length = 4
-      console.log(data)
-    }
-  }
+  const newData = isSuccess ? (home ? data.slice(0, 4) : data) : []
 
   return (
     <ul>
       {isLoading && <h3>...Loading</h3>}
       {isError && <h3 style={{ color: 'red' }}>Error occurred</h3>}
       {isSuccess &&
-        data.map(listItem => (
-          <li key={listItem.id}>
-            <Link to={`/${listItem.title}`}>
-              <img src={BASE_URL + listItem.image} alt='itemImg' />
-              <p>{listItem.title}</p>
-            </Link>
-          </li>
-        ))}
+        newData.map(listItem =>
+          hook === 'categories' ? (
+            <CategoriesListItem key={listItem.id} listItem={listItem} />
+          ) : hook === 'products' ? (
+            <ProductsListItem key={listItem.id} listItem={listItem} />
+          ) : (
+            <h3>Error</h3>
+          )
+        )}
     </ul>
   )
 }

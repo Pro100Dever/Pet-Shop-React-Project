@@ -21,7 +21,7 @@ export default function Home() {
               home='home'
             />
           </TitleContainer>
-          <AnyList home='home' />
+          <AnyList hook='categories' home='home' />
         </section>
         {/* <Share /> */}
         {/* <AnyList /> */}

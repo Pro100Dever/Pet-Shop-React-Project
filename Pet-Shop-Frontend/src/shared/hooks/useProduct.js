@@ -1,14 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
-const getProduct = async (productsId, id = '') => {
+const getProduct = async productsId => {
   return await axios.get(
-    `http://localhost:3333/products/${productsId && productsId}/${id && id}`
+    `http://localhost:3333/products/${productsId && productsId}`
   )
 }
-export function useProduct(productsId = 'all', id = '') {
+export function useProduct(productsId = 'all') {
   const { data, isLoading, isSuccess, isError } = useQuery({
-    queryKey: ['product', productsId, id],
+    queryKey: ['product', productsId],
     queryFn: () => getProduct(productsId && productsId, id),
     select: data => data.data,
   })
