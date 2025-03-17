@@ -27,7 +27,7 @@ export const StyledListItem = styled.li`
 export const StyledDiscount = styled.div`
   position: absolute;
   top: 16px;
-  right: 26px;
+  right: 16px;
   padding: 4px 8px;
   border-radius: 12px;
   background-color: #0d50ff;
