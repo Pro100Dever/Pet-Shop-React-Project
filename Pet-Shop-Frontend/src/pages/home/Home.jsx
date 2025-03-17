@@ -26,7 +26,9 @@ export default function Home() {
           <AnyList hook='categories' home='home' />
         </StyledSection>
         <Share />
-        <AnyList hook='products' home='home' />
+        <StyledSection>
+          <AnyList hook='products' home='home' />
+        </StyledSection>
       </main>
       <Footer />
     </>

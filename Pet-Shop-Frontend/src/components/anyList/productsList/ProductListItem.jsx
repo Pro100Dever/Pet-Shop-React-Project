@@ -16,14 +16,16 @@ export default function ProductsListItem({ listItem }) {
   const discountProcent = '-34%'
   return (
     <StyledListItem>
-      <StyledDiscount>{discountProcent}</StyledDiscount>
+      {discont_price && <StyledDiscount>{discountProcent}</StyledDiscount>}
       <Link to={`/categories/${title}`}>
         <StyledProductImg src={BASE_URL + image} alt='itemImg' />
         <InfoContainer>
           <StyledProductText>{title}</StyledProductText>
           <PriceContainer>
-            <DiscountPrice>{'$' + discont_price}</DiscountPrice>
-            <PriceText>{'$' + price}</PriceText>
+            {discont_price && (
+              <DiscountPrice>{'$' + discont_price}</DiscountPrice>
+            )}
+            <PriceText discount={discont_price}>{'$' + price}</PriceText>
           </PriceContainer>
         </InfoContainer>
       </Link>
