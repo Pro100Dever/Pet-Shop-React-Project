@@ -1,3 +1,4 @@
+import AnyList from '../components/anyList/AnyList'
 import News from '../components/news/News'
 import Share from '../components/share/Share'
 import Footer from '../layouts/footer/Footer'
@@ -9,9 +10,9 @@ export default function Home() {
       <Header />
       <main>
         <News />
-        {/* <AnyList /> */}
+        <AnyList />
         <Share />
-        {/* <AnyList /> */}
+        <AnyList />
       </main>
       <Footer />
     </>

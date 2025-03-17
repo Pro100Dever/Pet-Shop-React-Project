@@ -23,8 +23,10 @@ export default function Header() {
         <StyledNavLink to='/discountedProducts'>All sales</StyledNavLink>
       </StyledNav>
       <CartContainer>
-        <img src={cart} alt='Cart' width='44' height='48' />
-        {count && <CartCount>{count}</CartCount>}
+        <Link to='/cart'>
+          <img src={cart} alt='Cart' width='44' height='48' />
+          {count && <CartCount>{count}</CartCount>}
+        </Link>
       </CartContainer>
     </StyledHeader>
   )

@@ -1,3 +1,4 @@
+import ComplietedForm from '../components/complietedForm/ComplietedForm'
 import Footer from '../layouts/footer/Footer'
 import Header from '../layouts/header/Header'
 export default function Cart() {
@@ -7,10 +8,10 @@ export default function Cart() {
       <main>
         <SectionTitle text='Cart' />
         <div>
-          {/* <Cartlist /> */}
-          {/* <CartForm /> */}
+          <Cartlistt />
+          <ComplietedForm />
         </div>
-        {false && <Congratulations />}
+        {/* {false && <Congratulations />} */}
       </main>
       <Footer />
     </>

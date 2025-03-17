@@ -1,4 +1,5 @@
 // import ProductForm from '../../components/productForm/ProductForm'
+import ProductActions from '../../components/productActions/ProductActions'
 import Footer from '../../layouts/footer/Footer'
 import Header from '../../layouts/header/Header'
 export default function Product() {
@@ -17,7 +18,7 @@ export default function Product() {
             <img src='' alt='' />
           </div>
           <div>
-            {/* <ProductForm /> */}
+            <ProductActions />
             <p>Description</p>
           </div>
         </div>

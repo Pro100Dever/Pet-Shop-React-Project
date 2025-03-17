@@ -1,4 +1,4 @@
-export default function ProductForm() {
+export default function ProductActions() {
   return (
     <form>
       <h3>Product name</h3>
