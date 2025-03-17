@@ -1,14 +1,18 @@
 import AnyList from '../components/anyList/AnyList'
 import Footer from '../layouts/footer/Footer'
 import Header from '../layouts/header/Header'
+import SectionTitle from '../shared/ui/ActionUI/SectionTitle'
 
 export default function DiscountedProducts() {
   return (
     <>
       <Header />
       <main>
-        {/* <PathTree /> */}
-        <AnyList />
+        <section>
+          {/* <PathTree /> */}
+          <SectionTitle text='Discounted items' />
+          <AnyList hook='products' />
+        </section>
       </main>
       <Footer />
     </>
