@@ -7,8 +7,10 @@ export const StyledSection = styled.section`
   background: linear-gradient(261.47deg, #2451c6 32.63%, #0d50ff 98.96%);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 24px;
   text-align: center;
+  height: 570px;
 `
 export const ShareContainer = styled.div`
   display: flex;
@@ -18,6 +20,8 @@ export const StyledIng = styled.img`
   object-fit: cover;
   width: fit-content;
   max-width: 783px;
+  height: 360px;
+  margin-top: auto;
 `
 export const ShareTitle = styled.h3`
   font-family: Montserrat;

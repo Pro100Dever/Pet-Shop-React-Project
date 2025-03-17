@@ -26,4 +26,5 @@ export const ErrorText = styled.p`
   color: red;
   font-size: 12px;
   margin-top: -12px;
+  height: 16px;
 `

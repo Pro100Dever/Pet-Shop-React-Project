@@ -10,13 +10,13 @@ import {
 } from './ComplietedForm.styles'
 
 export default function ComplietedForm({ setIsSuccess }) {
-  const { succesForBtn, setSuccesForBtn } = useState(false)
+  const [succesForBtn, setSuccesForBtn] = useState(false)
   const [userInfo, setUserInfo] = useState({
     name: '',
     number: '',
     email: '',
   })
-  const { mutate, isPending, isSuccess } = useSubmitUser(userInfo)
+  const { mutate, isSuccess } = useSubmitUser(userInfo)
 
   const {
     register,
@@ -26,8 +26,8 @@ export default function ComplietedForm({ setIsSuccess }) {
 
   useEffect(() => {
     if (isSuccess) {
-      setIsSuccess(true)
       setSuccesForBtn(true)
+      setIsSuccess(true)
     }
   }, [isSuccess])
 
@@ -36,9 +36,7 @@ export default function ComplietedForm({ setIsSuccess }) {
     mutate()
   }
 
-  return isPending ? (
-    <h3>...Pending</h3>
-  ) : (
+  return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <InputContainer>
         <StyledInput
@@ -55,7 +53,7 @@ export default function ComplietedForm({ setIsSuccess }) {
           })}
           placeholder='Name'
         />
-        {errors.name && <ErrorText>{errors.name.message}</ErrorText>}{' '}
+        <ErrorText>{errors.name && errors.name.message}</ErrorText>
         <StyledInput
           {...register('number', {
             required: 'Phone number is required',
@@ -66,7 +64,7 @@ export default function ComplietedForm({ setIsSuccess }) {
           })}
           placeholder='Phone number'
         />
-        {errors.number && <ErrorText>{errors.number.message}</ErrorText>}{' '}
+        <ErrorText>{errors.number && errors.number.message}</ErrorText>
         <StyledInput
           {...register('email', {
             required: 'Email is required',
@@ -81,7 +79,7 @@ export default function ComplietedForm({ setIsSuccess }) {
           })}
           placeholder='Email'
         />
-        {errors.email && <ErrorText>{errors.email.message}</ErrorText>}{' '}
+        <ErrorText>{errors.email && errors.email.message}</ErrorText>
       </InputContainer>
       <AnyButton
         text='Get a discount'

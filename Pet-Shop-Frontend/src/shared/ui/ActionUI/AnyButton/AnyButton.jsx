@@ -3,26 +3,33 @@ import { StyledBtn } from './AnyButton.styles'
 
 export default function AnyButton({
   text,
-  activeText,
+  activeText = '',
   width = '100%',
   type = null,
+  succesForBtn = false,
 }) {
   const [currentText, setCurrentText] = useState(text)
   const [isActive, setIsActive] = useState(false)
 
-  function handleClick() {
-    setIsActive(true)
-    setCurrentText(activeText)
-  }
-
   useEffect(() => {
-    const id = setTimeout(() => {
-      setCurrentText(text)
-      setIsActive(false)
-    }, 500)
+    if (isActive) {
+      const id = setTimeout(() => {
+        setCurrentText(text)
+        setIsActive(false)
+      }, 500)
 
-    return () => clearTimeout(id)
-  }, [handleClick])
+      return () => clearTimeout(id)
+    }
+  }, [isActive, text])
+
+  function handleClick() {
+    if (succesForBtn) {
+      setIsActive(true)
+      if (activeText) {
+        setCurrentText(activeText)
+      }
+    }
+  }
 
   return (
     <StyledBtn
