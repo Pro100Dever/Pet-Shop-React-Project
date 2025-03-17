@@ -25,10 +25,10 @@ export default function Footer() {
           <InfoBlock>
             <InfoBlockTitle>Socials</InfoBlockTitle>
             <SocialContainer>
-              <a href=''>
+              <a href='https://www.instagram.com/'>
                 <img src={insta} alt='InstIcon' />
               </a>
-              <a href=''>
+              <a href='https://www.whatsapp.com/?lang=de_DE'>
                 <img src={watsapp} alt='watsapp' />
               </a>
             </SocialContainer>
