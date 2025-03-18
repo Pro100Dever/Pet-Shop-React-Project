@@ -1,26 +1,35 @@
 import { useSelector } from 'react-redux'
 import { useCategori } from './useCategori'
 
-export function useFilter(products, categoriId) {
-  const { data } = useCategori('all')
-  const newData = data.find(item => item.title === categoriId)
-  return products.filter(item => item.categoryId === newData.id)
-}
-
 export function useFormFilter(products) {
   const filters = useSelector(state => state.filters)
-  return filterProducts(products, filters)
+  const { data, isSuccess } = useCategori('all')
+
+  // Если данные не загружены, возвращаем исходный список продуктов
+  if (!isSuccess || !data) {
+    return products
+  }
+
+  console.log(products)
+  console.log(filters)
+
+  products = filterProducts(products, filters)
+
+  return products
 }
 
-function filterProducts(products, { sort, priceMin, priceMax }) {
+// Функция фильтрации по категории
+
+function filterProducts(products, filters) {
+  const { sort, priceMin, priceMax } = filters
   return products
     .filter(product => {
       let isValid = true
 
-      if (priceMin !== undefined) {
+      if (priceMin !== null) {
         isValid = isValid && product.price >= priceMin
       }
-      if (priceMax !== undefined) {
+      if (priceMax !== null) {
         isValid = isValid && product.price <= priceMax
       }
 

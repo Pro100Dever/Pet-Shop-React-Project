@@ -1,5 +1,7 @@
 import { useCategori } from '../../shared/hooks/useCategori'
-import { useFilter, useFormFilter } from '../../shared/hooks/useFilter'
+import { useFilterData } from '../../shared/hooks/useFilterData'
+import { useFormFilter } from '../../shared/hooks/useFormFilter'
+
 import { useProduct } from '../../shared/hooks/useProduct'
 import { StyledList } from './AnyList.styles'
 import CategoriesListItem from './categoriesList/CategoriesListItem'
@@ -19,15 +21,18 @@ export default function AnyList({
       ? useProduct(productId)
       : { data: [], isLoading: false, isSuccess: false, isError: true }
 
-  let newData = isSuccess ? (home ? data.slice(0, 4) : data) : []
+  let newData = []
 
-  if (hook === 'products' && categoriId !== 'all') {
-    newData = useFilter(newData, categoriId, discount)
+  if (isSuccess) {
+    newData = data
   }
-  if (discount) {
-    newData = newData.filter(item => item.discont_price !== null)
+  if (hook === 'products') {
+    newData = useFormFilter(newData, hook, categoriId, discount)
+    newData = useFilterData(newData, categoriId, discount)
   }
-  newData = useFormFilter(newData)
+  if (home && newData && newData.length > 0) {
+    newData = newData.slice(0, 4)
+  }
 
   return (
     <StyledList>
