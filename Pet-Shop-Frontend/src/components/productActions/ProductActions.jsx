@@ -1,8 +1,25 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../../redux/slices/cartSclice'
+import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
+import {
+  ActionContainer,
+  AllPriceContainer,
+  DiscountPrice,
+  PriceContainer,
+  PriceText,
+  StyledCountBtn,
+  StyledDiscount,
+  StyledForm,
+  StyledInput,
+  StyledTitile,
+} from './PoductActions'
 
 export default function ProductActions({ product }) {
+  console.log(product)
+
+  const [succesForBtn, setSuccesForBtn] = useState(false)
   const dispatch = useDispatch()
   const { register, handleSubmit, setValue, watch } = useForm({
     defaultValues: {
@@ -10,45 +27,65 @@ export default function ProductActions({ product }) {
     },
   })
   const count = watch('count')
-
   function handleMinus() {
     if (count > 1) {
       setValue('count', count - 1)
     }
   }
-
   function handlePlus() {
     setValue('count', count + 1)
   }
-
   function handleChange(e) {
     setValue({ ...product, count: Number(e.target.value) || 1 })
   }
   function onSubmit(data) {
+    setSuccesForBtn('succes')
+    let cartList = JSON.parse(localStorage.getItem('cartList')) || []
+    cartList.push({ ...product, count: data.count })
+    localStorage.setItem('cartList', JSON.stringify(cartList))
     dispatch(addItem({ ...product, count: data.count }))
   }
 
+  const discountProcent =
+    product.discont_price &&
+    Math.floor(((product.price - product.discont_price) / product.price) * 100)
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h3>{product.title}</h3>
-      <p>{product.discont_price}</p>
-      <p>{product.price}</p>
-      <div>
-        <div>
-          <button type='button' onClick={handleMinus}>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <StyledTitile>{product.title}</StyledTitile>
+      <AllPriceContainer>
+        {product.discont_price && (
+          <DiscountPrice>{'$' + product.discont_price}</DiscountPrice>
+        )}
+        <PriceContainer>
+          <PriceText discount={product.discont_price}>
+            {'$' + product.price}
+          </PriceText>
+          {product.discont_price && (
+            <StyledDiscount>{`-${discountProcent}%`}</StyledDiscount>
+          )}
+        </PriceContainer>
+      </AllPriceContainer>
+      <ActionContainer>
+        <ActionContainer>
+          <StyledCountBtn type='button' onClick={handleMinus} side='right'>
             -
-          </button>
-          <input
+          </StyledCountBtn>
+          <StyledInput
             type='number'
             {...register('count', { min: 1 })}
             onChange={handleChange}
           />
-          <button type='button' onClick={handlePlus}>
+          <StyledCountBtn type='button' onClick={handlePlus} side='left'>
             +
-          </button>
-        </div>
-        <button type='submit'>Add to cart</button>
-      </div>
-    </form>
+          </StyledCountBtn>
+        </ActionContainer>
+        <AnyButton
+          text='Add to cart'
+          activeText='Added'
+          succesForBtn={succesForBtn}
+        />
+      </ActionContainer>
+    </StyledForm>
   )
 }

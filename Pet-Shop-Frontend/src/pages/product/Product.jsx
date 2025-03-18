@@ -4,6 +4,15 @@ import ProductActions from '../../components/productActions/ProductActions'
 import Footer from '../../layouts/footer/Footer'
 import Header from '../../layouts/header/Header'
 import { useProduct } from '../../shared/hooks/useProduct'
+import {
+  ActionContainer,
+  ImgContainer,
+  StyledContainer,
+  StyledDescription,
+  StyledImg,
+  StyledMainImg,
+  StyledSection,
+} from './Products.styles'
 
 export default function Product() {
   const BACK_URL = 'http://localhost:3333'
@@ -24,23 +33,33 @@ export default function Product() {
     <>
       <Header />
       <main>
-        {/* <PathTree /> */}
-        {isSuccess && (
-          <div>
-            <div>
-              <img src={BACK_URL + image} alt='prodImg' />
-              <img src={BACK_URL + image} alt='prodImg' />
-              <img src={BACK_URL + image} alt='prodImg' />
-            </div>
-            <div>
-              <img src={BACK_URL + image} alt='prodImg' />
-            </div>
-            <div>
-              <ProductActions product={newData} />
-              <p>{description}</p>
-            </div>
-          </div>
-        )}
+        <StyledSection>
+          {/* <PathTree /> */}
+          {isSuccess && (
+            <StyledContainer>
+              <ImgContainer>
+                <StyledImg src={BACK_URL + image} alt='prodImg' />
+                <StyledImg src={BACK_URL + image} alt='prodImg' />
+                <StyledImg src={BACK_URL + image} alt='prodImg' />
+              </ImgContainer>
+              <div>
+                <StyledMainImg src={BACK_URL + image} alt='prodImg' />
+              </div>
+              <ActionContainer>
+                <ProductActions product={newData} />
+                <div>
+                  <h4>Description</h4>
+                  <StyledDescription>
+                    {description.slice(0, 400)}...
+                  </StyledDescription>
+
+                  {/* <StyledDescription>{description}</StyledDescription> */}
+                  <button>Read more</button>
+                </div>
+              </ActionContainer>
+            </StyledContainer>
+          )}
+        </StyledSection>
       </main>
       <Footer />
     </>
