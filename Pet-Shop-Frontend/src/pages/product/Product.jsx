@@ -1,4 +1,5 @@
 // import ProductForm from '../../components/productForm/ProductForm'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ProductActions from '../../components/productActions/ProductActions'
 import Footer from '../../layouts/footer/Footer'
@@ -16,7 +17,7 @@ import {
 
 export default function Product() {
   const BACK_URL = 'http://localhost:3333'
-
+  const [descIsActive, setDescIsActive] = useState(false)
   const { categoryId, productId } = useParams()
   console.log(categoryId, productId)
   const { data, isError, isLoading, isSuccess } = useProduct()
@@ -49,12 +50,19 @@ export default function Product() {
                 <ProductActions product={newData} />
                 <div>
                   <h4>Description</h4>
-                  <StyledDescription>
-                    {description.slice(0, 400)}...
-                  </StyledDescription>
+                  {descIsActive ? (
+                    <StyledDescription descIsActive={descIsActive}>
+                      {description}
+                    </StyledDescription>
+                  ) : (
+                    <StyledDescription descIsActive={!descIsActive}>
+                      {description.slice(0, 400)}...
+                    </StyledDescription>
+                  )}
 
-                  {/* <StyledDescription>{description}</StyledDescription> */}
-                  <button>Read more</button>
+                  <button onClick={() => setDescIsActive(!descIsActive)}>
+                    Read more
+                  </button>
                 </div>
               </ActionContainer>
             </StyledContainer>

@@ -24,11 +24,13 @@ export const StyledMainImg = styled.img`
   border-radius: 12px;
 `
 export const StyledDescription = styled.p`
+  display: ${props => (props.descIsActive ? 'block' : 'none')};
   width: 548px;
-  height: 150px;
-  overflow: hidden;
+  height: ${props => (props.descIsActive ? '' : '150px')};
   font-weight: 400;
   font-size: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 `
 export const ActionContainer = styled.div`
   width: 548px;
