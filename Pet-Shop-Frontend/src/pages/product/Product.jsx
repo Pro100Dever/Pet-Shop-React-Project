@@ -61,7 +61,7 @@ export default function Product() {
                   )}
 
                   <button onClick={() => setDescIsActive(!descIsActive)}>
-                    Read more
+                    {descIsActive ? 'Hide text' : 'Read more'}
                   </button>
                 </div>
               </ActionContainer>
