@@ -11,7 +11,7 @@ export default function DiscountedProducts() {
         <section>
           {/* <PathTree /> */}
           <SectionTitle text='Discounted items' />
-          <AnyList hook='products' />
+          <AnyList hook='products' discount='discount' />
         </section>
       </main>
       <Footer />
