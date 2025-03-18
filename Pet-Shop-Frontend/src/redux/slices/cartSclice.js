@@ -21,5 +21,5 @@ const cartSclice = createSlice({
     },
   },
 })
-
+export const { addItem, deleteItem, updateItem } = cartSclice.actions
 export default cartSclice.reducer

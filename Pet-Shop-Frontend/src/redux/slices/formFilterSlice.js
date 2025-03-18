@@ -15,5 +15,5 @@ const formFilterSlice = createSlice({
     },
   },
 })
-
+export const { updateFilter } = formFilterSlice.actions
 export default formFilterSlice.reducer
