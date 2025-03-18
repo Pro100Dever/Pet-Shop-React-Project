@@ -28,7 +28,11 @@ export default function AnyList({
           hook === 'categories' ? (
             <CategoriesListItem key={listItem.id} listItem={listItem} />
           ) : hook === 'products' ? (
-            <ProductsListItem key={listItem.id} listItem={listItem} />
+            <ProductsListItem
+              key={listItem.id}
+              categoriId={categoriId}
+              listItem={listItem}
+            />
           ) : (
             <h3>Ошибка</h3>
           )

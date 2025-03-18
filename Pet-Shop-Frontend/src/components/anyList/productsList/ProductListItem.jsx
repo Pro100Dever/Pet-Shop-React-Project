@@ -10,7 +10,7 @@ import {
   StyledProductText,
 } from '../AnyList.styles'
 
-export default function ProductsListItem({ listItem }) {
+export default function ProductsListItem({ listItem, categoriId }) {
   const BASE_URL = 'http://localhost:3333/'
   const { title, image, price, discont_price } = listItem
   const discountProcent =
@@ -21,7 +21,7 @@ export default function ProductsListItem({ listItem }) {
       {discont_price && (
         <StyledDiscount>{`-${discountProcent}%`}</StyledDiscount>
       )}
-      <Link to={`/categories/${title}`}>
+      <Link to={`/categories/${categoriId}/${title}`}>
         <StyledProductImg src={BASE_URL + image} alt='itemImg' />
         <InfoContainer>
           <StyledProductText>{title}</StyledProductText>

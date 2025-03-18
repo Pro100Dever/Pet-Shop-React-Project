@@ -15,11 +15,13 @@ function App() {
       {globalStyles}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/categories' element={<Categories />}>
-          <Route path=':categoryId' element={<CategoriProducts />}>
-            <Route path=':productId' element={<Product />} />
-          </Route>
-        </Route>
+        <Route path='/categories' element={<Categories />} />
+        <Route path='/categories/:categoryId' element={<CategoriProducts />} />
+        <Route
+          path='/categories/:categoryId/:productId'
+          element={<Product />}
+        />
+
         <Route path='/allProducts' element={<AllProducts />} />
         <Route path='/discountedProducts' element={<DiscountedProducts />} />
         <Route path='/cart' element={<Cart />} />
