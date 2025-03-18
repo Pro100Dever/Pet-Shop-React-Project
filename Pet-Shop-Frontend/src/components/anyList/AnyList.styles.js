@@ -8,7 +8,7 @@ export const StyledList = styled.ul`
   width: 100%;
   text-align: center;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
 `
 
 export const StyledCategoriImg = styled.img`

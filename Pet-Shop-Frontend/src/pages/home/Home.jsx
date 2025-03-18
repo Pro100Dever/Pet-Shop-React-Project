@@ -36,7 +36,7 @@ export default function Home() {
               home='home'
             />
           </TitleContainer>
-          <AnyList hook='products' home='home' />
+          <AnyList hook='products' home='home' discount='discount' />
         </StyledSection>
       </main>
       <Footer />
