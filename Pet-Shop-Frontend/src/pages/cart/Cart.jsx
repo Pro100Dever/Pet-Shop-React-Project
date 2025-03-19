@@ -56,6 +56,7 @@ export default function Cart() {
                     formType='negative'
                     btnActiveText={'Ordered'}
                     btnText='Order'
+                    submitType='Order'
                     setIsSuccess={setIsSuccess}
                   />
                 </CartOrderContainer>

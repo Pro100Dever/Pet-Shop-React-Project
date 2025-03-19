@@ -1,17 +1,28 @@
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 
-const postUserInfo = async userInfo => {
+const postUserInfo = async info => {
   try {
-    return await axios.post(`http://localhost:3333/sale/send`, userInfo)
+    return await axios.post(`http://localhost:3333/sale/send`, info)
   } catch (error) {
     console.log(error)
   }
 }
-export function useSubmitUser(userInfo) {
+const postOrderInfo = async info => {
+  try {
+    return await axios.post(`http://localhost:3333/order/send`, info)
+  } catch (error) {
+    console.log(error)
+  }
+}
+export function useSubmitUser(info, type) {
+  console.log(info)
+  console.log(type)
+
   const { mutate, isPending, isSuccess } = useMutation({
-    mutationKey: ['add discount promo'],
-    mutationFn: () => postUserInfo(userInfo),
+    mutationKey: [type],
+    mutationFn: () =>
+      type === 'Order' ? postOrderInfo(info) : postUserInfo(info),
     onError: err => {
       console.error(err)
     },

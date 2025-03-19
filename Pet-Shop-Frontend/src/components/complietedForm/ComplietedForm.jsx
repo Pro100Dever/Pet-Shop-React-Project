@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux'
 import { useSubmitUser } from '../../shared/hooks/useSubmitUser'
 import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import {
@@ -15,6 +16,7 @@ export default function ComplietedForm({
   type = null,
   btnText = null,
   btnActiveText = null,
+  submitType = 'Get Discount',
 }) {
   const [succesForBtn, setSuccesForBtn] = useState(false)
   const [userInfo, setUserInfo] = useState({
@@ -22,7 +24,10 @@ export default function ComplietedForm({
     number: '',
     email: '',
   })
-  const { mutate, isSuccess } = useSubmitUser(userInfo)
+  const cartOrderList = useSelector(state => state.cart)
+  const info =
+    submitType === 'Order' ? [userInfo, ...cartOrderList] : [userInfo]
+  const { mutate, isSuccess } = useSubmitUser(info, submitType)
 
   const {
     register,
