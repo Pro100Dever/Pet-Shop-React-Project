@@ -11,6 +11,22 @@ export default function AnyButton({
   const [currentText, setCurrentText] = useState(text)
   const [isActive, setIsActive] = useState(false)
 
+  function getChexk() {
+    if (succesForBtn) {
+      setIsActive(true)
+      if (activeText) {
+        setCurrentText(activeText)
+      }
+    }
+  }
+
+  function handleClick() {
+    getChexk()
+  }
+  useEffect(() => {
+    getChexk()
+  }, [succesForBtn, activeText])
+
   useEffect(() => {
     if (isActive) {
       const id = setTimeout(() => {
@@ -21,15 +37,6 @@ export default function AnyButton({
       return () => clearTimeout(id)
     }
   }, [isActive, text])
-
-  function handleClick() {
-    if (succesForBtn) {
-      setIsActive(true)
-      if (activeText) {
-        setCurrentText(activeText)
-      }
-    }
-  }
 
   return (
     <StyledBtn
