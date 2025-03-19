@@ -26,7 +26,9 @@ export default function ComplietedForm({
   })
   const cartOrderList = useSelector(state => state.cart)
   const info =
-    submitType === 'Order' ? [userInfo, ...cartOrderList] : [userInfo]
+    submitType === 'Order'
+      ? { user: userInfo, order: [...cartOrderList] }
+      : userInfo
   const { mutate, isSuccess } = useSubmitUser(info, submitType)
 
   const {
