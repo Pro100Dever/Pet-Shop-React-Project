@@ -1,26 +1,53 @@
+import { Link } from 'react-router-dom'
+import {
+  PriceContainer,
+  StyledCountBtn,
+  StyledInput,
+} from '../productActions/PoductActions'
+import {
+  ActionsConainer,
+  CartImg,
+  CartItemPrice,
+  CartListItem,
+  CartPriceContainer,
+  CloseIcon,
+  DiscountCartPrice,
+  StyledCartList,
+  StyledTitle,
+} from './Cartlist.styles'
+
 export default function CartList({ cartList }) {
+  const URL = 'http://localhost:3333/'
   return (
-    <ul>
+    <StyledCartList>
       {cartList.map(product => (
-        <li key={product.id}>
-          <img src='asdas' alt='image' />
+        <CartListItem key={product.id}>
+          <CartImg src={URL + product.image} alt='image' />
           <div>
-            <h3>{product.title}</h3>
-            <div>
-              <button>-</button>
-              <input type='number' id='count' value={product.count} />
-              <button>+</button>
-              <div>
+            <Link to={`/categories/${product.category}/${product.title}`}>
+              <StyledTitle>{product.title}</StyledTitle>
+            </Link>
+            <ActionsConainer>
+              <PriceContainer>
+                <StyledCountBtn />
+                <StyledInput type='number' id='count' value={product.count} />
+                <StyledCountBtn side='left' />
+              </PriceContainer>
+              <CartPriceContainer>
                 {product.discont_price && (
-                  <p>{product.discont_price * product.count}</p>
+                  <DiscountCartPrice>
+                    {'$' + product.discont_price * product.count}
+                  </DiscountCartPrice>
                 )}
-                <p>{product.price * product.count}</p>
-              </div>
-            </div>
+                <CartItemPrice discount={product.discont_price}>
+                  {'$' + product.price * product.count}
+                </CartItemPrice>
+              </CartPriceContainer>
+            </ActionsConainer>
           </div>
-          <img src='safas' alt='close' />
-        </li>
+          <CloseIcon src='/close.svg' alt='close' />
+        </CartListItem>
       ))}
-    </ul>
+    </StyledCartList>
   )
 }

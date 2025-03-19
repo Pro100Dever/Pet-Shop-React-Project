@@ -40,6 +40,8 @@ export const AllPriceContainer = styled.div`
 
 export const PriceContainer = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
 `
 
 export const StyledDiscount = styled.div`
@@ -56,11 +58,13 @@ export const StyledDiscount = styled.div`
 
 export const ActionContainer = styled.div`
   display: flex;
+  gap: 32px;
 `
 export const StyledInput = styled.input`
   padding-left: 8px;
   width: 86px;
   height: 58px;
+  font-weight: 600;
   text-align: center;
   border: none;
   border-bottom: 1px solid #dddddd;
@@ -69,11 +73,12 @@ export const StyledInput = styled.input`
 `
 
 export const StyledCountBtn = styled.button`
+  background: ${props =>
+      props.side === 'left' ? `url('/plus.svg')` : `url('/minus.svg')`}
+    center center no-repeat;
   width: 58px;
   height: 58px;
   border-radius: ${props =>
     props.side === 'left' ? '0 8px 8px 0' : ' 8px 0 0 8px'};
-  background: transparent;
   border: 1px solid #dddddd;
-  margin-right: ${props => (props.side === 'left' ? '32px' : '0')};
 `

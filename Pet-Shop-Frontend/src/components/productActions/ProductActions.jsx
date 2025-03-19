@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import { addItem } from '../../redux/slices/cartSlice'
 import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import {
@@ -19,6 +20,7 @@ import {
 export default function ProductActions({ product }) {
   const [succesForBtn, setSuccesForBtn] = useState(false)
   const dispatch = useDispatch()
+  const { categoryId } = useParams()
 
   const { register, handleSubmit, setValue, watch } = useForm({
     defaultValues: {
@@ -39,7 +41,7 @@ export default function ProductActions({ product }) {
   }
   function onSubmit(data) {
     setSuccesForBtn('succes')
-    dispatch(addItem({ ...product, count: data.count }))
+    dispatch(addItem({ ...product, count: data.count, category: categoryId }))
   }
 
   const discountProcent =
@@ -63,19 +65,15 @@ export default function ProductActions({ product }) {
         </PriceContainer>
       </AllPriceContainer>
       <ActionContainer>
-        <ActionContainer>
-          <StyledCountBtn type='button' onClick={handleMinus} side='right'>
-            -
-          </StyledCountBtn>
+        <PriceContainer>
+          <StyledCountBtn type='button' onClick={handleMinus} side='right' />
           <StyledInput
             type='number'
-            {...register('count', { min: 1 })}
+            {...register('count', { min: 1, max: 99 })}
             onChange={handleChange}
           />
-          <StyledCountBtn type='button' onClick={handlePlus} side='left'>
-            +
-          </StyledCountBtn>
-        </ActionContainer>
+          <StyledCountBtn type='button' onClick={handlePlus} side='left' />
+        </PriceContainer>
         <AnyButton
           text='Add to cart'
           activeText='Added'
