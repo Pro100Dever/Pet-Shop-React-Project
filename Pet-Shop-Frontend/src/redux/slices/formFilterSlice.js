@@ -12,7 +12,7 @@ const formFilterSlice = createSlice({
   initialState,
   reducers: {
     updateFilter: (state, action) => {
-      console.log(action.payload)
+      // console.log(action.payload)
 
       return action.payload
     },
