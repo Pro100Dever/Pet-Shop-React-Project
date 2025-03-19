@@ -55,7 +55,7 @@ export default function Filter({ type = false }) {
       <StyledContainer>
         <StyledText>Sorted</StyledText>
         <Box>
-          <FormControl sx={{ width: 200 }} size='small'>
+          <FormControl sx={{ width: 200, marginBottom: '8px' }} size='small'>
             <Select value={currFilter.sort} onChange={handleChange('sort')}>
               <MenuItem value='default'>By default</MenuItem>
               <MenuItem value='newest'>Newest</MenuItem>
