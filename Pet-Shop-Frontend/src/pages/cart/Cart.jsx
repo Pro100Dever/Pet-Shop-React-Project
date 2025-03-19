@@ -1,15 +1,16 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import CartList from '../components/cartList/Cartlist'
-import CongratulationsModal from '../components/congratulations/CongratulationsModal'
-import Footer from '../layouts/footer/Footer'
-import Header from '../layouts/header/Header'
-import { localGet } from '../redux/slices/cartSlice'
-import AnyButton from '../shared/ui/ActionUI/AnyButton/AnyButton'
-import NavtTreeLink from '../shared/ui/ActionUI/navTreeLink/NavtTreeLink'
-import SectionTitle from '../shared/ui/ActionUI/SectionTitle'
-import { StyledLinie, StyledSection, TitleContainer } from './home/Home.styles'
+import CartList from '../../components/cartList/Cartlist'
+import ComplietedForm from '../../components/complietedForm/ComplietedForm'
+import CongratulationsModal from '../../components/congratulations/CongratulationsModal'
+import Footer from '../../layouts/footer/Footer'
+import Header from '../../layouts/header/Header'
+import { localGet } from '../../redux/slices/cartSlice'
+import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
+import NavtTreeLink from '../../shared/ui/ActionUI/navTreeLink/NavtTreeLink'
+import SectionTitle from '../../shared/ui/ActionUI/SectionTitle'
+import { StyledLinie, StyledSection, TitleContainer } from '../home/Home.styles'
 
 export default function Cart() {
   const cartList = useSelector(state => state.cart)
@@ -34,7 +35,12 @@ export default function Cart() {
           </TitleContainer>
           <div>
             {cartList.length > 0 ? (
-              <CartList cartList={cartList} />
+              <>
+                <CartList cartList={cartList} />
+                <div>
+                  <ComplietedForm />
+                </div>
+              </>
             ) : (
               <>
                 <h3 style={{ marginBottom: '32px' }}>
@@ -45,7 +51,6 @@ export default function Cart() {
                 </Link>
               </>
             )}
-            {/* <ComplietedForm /> */}
           </div>
         </StyledSection>
         {false && <CongratulationsModal />}

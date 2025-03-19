@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router'
 import AllProducts from './pages/AllProducts'
-import Cart from './pages/Cart'
+import Cart from './pages/cart/Cart'
 import Categories from './pages/Categories'
 import CategoriProducts from './pages/CategoriProducts'
 import DiscountedProducts from './pages/DiscountedProducts'
