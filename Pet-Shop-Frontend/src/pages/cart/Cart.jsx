@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CartList from '../../components/cartList/Cartlist'
+import { StyledCartList } from '../../components/cartList/Cartlist.styles'
 import ComplietedForm from '../../components/complietedForm/ComplietedForm'
 import CongratulationsModal from '../../components/congratulations/CongratulationsModal'
 import Footer from '../../layouts/footer/Footer'
@@ -35,6 +36,8 @@ export default function Cart() {
     )
     .toFixed(2)
 
+  console.log(cartList)
+
   return (
     <>
       <Header />
@@ -52,7 +55,11 @@ export default function Cart() {
           <CartContainer>
             {cartList.length > 0 ? (
               <>
-                <CartList cartList={cartList} />
+                <StyledCartList>
+                  {cartList.map(product => (
+                    <CartList product={product} key={product.id} />
+                  ))}
+                </StyledCartList>
                 <CartOrderContainer>
                   <TotalTitle>Order details</TotalTitle>
                   <TotalContainer>

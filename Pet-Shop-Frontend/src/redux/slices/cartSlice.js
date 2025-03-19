@@ -15,9 +15,10 @@ const cartSlice = createSlice({
       }
       localStorage.setItem('cartList', JSON.stringify(state))
     },
-
     deleteItem: (state, action) => {
-      return state.filter(item => item.id !== action.payload.id)
+      const newState = state.filter(item => item.id !== action.payload.id)
+      localStorage.setItem('cartList', JSON.stringify(newState))
+      return newState
     },
     localGet: (state, action) => {
       const localData = JSON.parse(localStorage.getItem('cartList')) || []

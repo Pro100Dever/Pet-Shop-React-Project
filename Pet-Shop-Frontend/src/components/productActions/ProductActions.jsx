@@ -21,6 +21,7 @@ export default function ProductActions({ product }) {
   const [succesForBtn, setSuccesForBtn] = useState(false)
   const dispatch = useDispatch()
   const { categoryId } = useParams()
+  const { discont_price, price } = product
 
   const { register, handleSubmit, setValue, watch } = useForm({
     defaultValues: {
@@ -45,21 +46,20 @@ export default function ProductActions({ product }) {
   }
 
   const discountProcent =
-    product.discont_price &&
-    Math.floor(((product.price - product.discont_price) / product.price) * 100)
+    discont_price && Math.floor(((price - discont_price) / product.price) * 100)
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <StyledTitile>{product.title}</StyledTitile>
       <AllPriceContainer>
-        {product.discont_price && (
-          <DiscountPrice>{'$' + product.discont_price}</DiscountPrice>
+        {discont_price && (
+          <DiscountPrice>{'$' + discont_price.toFixed(2)}</DiscountPrice>
         )}
         <PriceContainer>
-          <PriceText discount={product.discont_price}>
-            {'$' + product.price}
+          <PriceText discount={discont_price}>
+            {'$' + price.toFixed(2)}
           </PriceText>
-          {product.discont_price && (
+          {discont_price && (
             <StyledDiscount>{`-${discountProcent}%`}</StyledDiscount>
           )}
         </PriceContainer>
