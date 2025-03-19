@@ -37,6 +37,7 @@ export const StyledDiscount = styled.div`
 `
 
 export const StyledProductImg = styled.img`
+  object-fit: contain;
   width: 100%;
   height: 284px;
   border-radius: 12px 12px 0 0;

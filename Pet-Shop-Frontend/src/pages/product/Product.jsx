@@ -19,7 +19,6 @@ export default function Product() {
   const BACK_URL = 'http://localhost:3333'
   const [descIsActive, setDescIsActive] = useState(false)
   const { categoryId, productId } = useParams()
-  console.log(categoryId, productId)
   const { data, isError, isLoading, isSuccess } = useProduct()
 
   let newData = {}

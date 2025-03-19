@@ -11,7 +11,9 @@ export default function CartList({ cartList }) {
               <input type='number' id='count' value={product.count} />
               <button>+</button>
               <div>
-                <p>{product.discont_price * product.count}</p>
+                {product.discont_price && (
+                  <p>{product.discont_price * product.count}</p>
+                )}
                 <p>{product.price * product.count}</p>
               </div>
             </div>

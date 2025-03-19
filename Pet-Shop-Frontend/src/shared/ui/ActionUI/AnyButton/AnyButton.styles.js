@@ -8,6 +8,7 @@ export const theme = {
     border: none;
     border-radius: 8px;
     font-weight: 600;
+    height:58px;
   `,
   colors: {
     basic: '#FFFFFF',
@@ -23,6 +24,7 @@ export const theme = {
 
 export const StyledBtn = styled.button`
   ${theme.style}
+
   width: ${props => props.width || '100%'};
   color: ${props => (props.type ? theme.colors.focus : theme.colors.basic)};
   background: ${props =>
@@ -38,6 +40,6 @@ export const StyledBtn = styled.button`
       props.type ? theme.colors.focusNegative : theme.colors.focus};
     background-color: ${theme.background.focus};
     border: ${props =>
-      !props.type && `border: 1px solid ${theme.colors.focus};`};
+      !props.type ? ` 1px solid ${theme.colors.focus}` : 'none'};
   }
 `
