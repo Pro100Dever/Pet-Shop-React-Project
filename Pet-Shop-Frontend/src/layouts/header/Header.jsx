@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { localGet } from '../../redux/slices/cartSlice'
-import cart from '../../shared/assets/icons/CartIcon.svg?url'
+import cartIcon from '../../shared/assets/icons/cartIcon.svg?url'
 import {
   CartContainer,
   CartCount,
@@ -14,7 +14,7 @@ import logo from '/public/logo.svg?url'
 
 export default function Header() {
   const [count, setCount] = useState(0)
-  const cartList = useSelector(state => state.cart)
+  const { cart } = useSelector(state => state.cart)
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -22,8 +22,8 @@ export default function Header() {
   }, [])
 
   useEffect(() => {
-    setCount(cartList.reduce((acc, item) => acc + item.count, 0))
-  }, [cartList])
+    setCount(cart.reduce((acc, item) => acc + item.count, 0))
+  }, [cart])
 
   return (
     <StyledHeader>
@@ -38,7 +38,7 @@ export default function Header() {
       </StyledNav>
       <CartContainer>
         <Link to='/cart'>
-          <img src={cart} alt='Cart' width='44' height='48' />
+          <img src={cartIcon} alt='Cart' width='44' height='48' />
           {count > 0 && <CartCount>{count}</CartCount>}
         </Link>
       </CartContainer>

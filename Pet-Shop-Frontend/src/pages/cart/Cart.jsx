@@ -23,7 +23,7 @@ import {
 
 export default function Cart() {
   const [isSuccess, setIsSuccess] = useState(false)
-  const cartList = useSelector(state => state.cart)
+  const cartList = useSelector(state => state.cart.cart)
   const totalProductCount = cartList.reduce((acc, item) => item.count + acc, 0)
 
   const totalPrice = cartList

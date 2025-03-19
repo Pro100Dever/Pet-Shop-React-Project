@@ -24,7 +24,7 @@ export default function ComplietedForm({
     number: '',
     email: '',
   })
-  const cartOrderList = useSelector(state => state.cart)
+  const cartOrderList = useSelector(state => state.cart.cart)
 
   const info =
     submitType === 'Order'
