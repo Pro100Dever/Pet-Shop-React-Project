@@ -25,8 +25,6 @@ export default function Header() {
     setCount(cartList.reduce((acc, item) => acc + item.count, 0))
   }, [cartList])
 
-  console.log(count)
-
   return (
     <StyledHeader>
       <Link to='/'>

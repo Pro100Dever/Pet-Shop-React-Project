@@ -16,9 +16,6 @@ const postOrderInfo = async info => {
   }
 }
 export function useSubmitUser(info, type) {
-  console.log(info)
-  console.log(type)
-
   const { mutate, isPending, isSuccess } = useMutation({
     mutationKey: [type],
     mutationFn: () =>

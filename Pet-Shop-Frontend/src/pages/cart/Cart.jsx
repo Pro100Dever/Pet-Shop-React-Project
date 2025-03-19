@@ -23,10 +23,14 @@ export default function Cart() {
   const [isSuccess, setIsSuccess] = useState(false)
   const cartList = useSelector(state => state.cart)
   const totalProductCount = cartList.reduce((acc, item) => item.count + acc, 0)
+  console.log(cartList)
+
   const totalPrice = cartList
     .reduce(
       (acc, item) =>
-        item.discont_price ? item.discont_price + acc : item.price + acc,
+        item.discont_price
+          ? item.discont_price * item.count + acc
+          : item.price * item.count + acc,
       0
     )
     .toFixed(2)
