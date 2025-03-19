@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CartList from '../../components/cartList/Cartlist'
 import ComplietedForm from '../../components/complietedForm/ComplietedForm'
 import CongratulationsModal from '../../components/congratulations/CongratulationsModal'
 import Footer from '../../layouts/footer/Footer'
 import Header from '../../layouts/header/Header'
-import { localGet } from '../../redux/slices/cartSlice'
 import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import NavtTreeLink from '../../shared/ui/ActionUI/navTreeLink/NavtTreeLink'
 import SectionTitle from '../../shared/ui/ActionUI/SectionTitle'
@@ -23,10 +22,14 @@ import {
 export default function Cart() {
   const [isSuccess, setIsSuccess] = useState(false)
   const cartList = useSelector(state => state.cart)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(localGet())
-  }, [])
+  const totalProductCount = cartList.reduce((acc, item) => item.count + acc, 0)
+  const totalPrice = cartList
+    .reduce(
+      (acc, item) =>
+        item.discont_price ? item.discont_price + acc : item.price + acc,
+      0
+    )
+    .toFixed(2)
 
   return (
     <>
@@ -49,8 +52,8 @@ export default function Cart() {
                 <CartOrderContainer>
                   <TotalTitle>Order details</TotalTitle>
                   <TotalContainer>
-                    <TotalCount>10 Items Total</TotalCount>
-                    <TotalPrice>$10,53</TotalPrice>
+                    <TotalCount>{totalProductCount} Items Total</TotalCount>
+                    <TotalPrice>${totalPrice}</TotalPrice>
                   </TotalContainer>
                   <ComplietedForm
                     formType='negative'

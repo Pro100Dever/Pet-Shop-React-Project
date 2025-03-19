@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { localGet } from '../../redux/slices/cartSlice'
 import cart from '../../shared/assets/icons/CartIcon.svg?url'
 import {
   CartContainer,
@@ -10,7 +13,20 @@ import {
 import logo from '/public/logo.svg?url'
 
 export default function Header() {
-  const count = 12
+  const [count, setCount] = useState(0)
+  const cartList = useSelector(state => state.cart)
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(localGet())
+  }, [])
+
+  useEffect(() => {
+    setCount(cartList.reduce((acc, item) => acc + item.count, 0))
+  }, [cartList])
+
+  console.log(count)
+
   return (
     <StyledHeader>
       <Link to='/'>
@@ -25,7 +41,7 @@ export default function Header() {
       <CartContainer>
         <Link to='/cart'>
           <img src={cart} alt='Cart' width='44' height='48' />
-          {count && <CartCount>{count}</CartCount>}
+          {count > 0 && <CartCount>{count}</CartCount>}
         </Link>
       </CartContainer>
     </StyledHeader>
