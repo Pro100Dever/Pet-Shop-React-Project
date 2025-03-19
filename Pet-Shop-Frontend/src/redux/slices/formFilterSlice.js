@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  sort: null,
+  sort: 'default',
   priceMin: null,
   priceMax: null,
+  checked: null,
 }
 
 const formFilterSlice = createSlice({
@@ -11,7 +12,9 @@ const formFilterSlice = createSlice({
   initialState,
   reducers: {
     updateFilter: (state, action) => {
-      state = action.payload
+      console.log(action.payload)
+
+      return action.payload
     },
   },
 })

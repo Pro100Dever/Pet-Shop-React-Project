@@ -7,30 +7,46 @@ export function useFormFilter(products) {
 }
 
 function filterProducts(products, filters) {
-  const { sort, priceMin, priceMax } = filters
+  const { sort, priceMin, priceMax, checked } = filters
+
   return products
     .filter(product => {
+      // Получаем цену для сравнения, приоритет дисконтной цены
+      const productPrice =
+        product.discont_price !== null ? product.discont_price : product.price
+
       let isValid = true
 
-      if (priceMin !== null) {
-        isValid = isValid && product.price >= priceMin
+      // Если чекбокс активирован, показываем только товары с дисконтной ценой
+      if (checked) {
+        isValid = isValid && product.discont_price !== null
       }
-      if (priceMax !== null) {
-        isValid = isValid && product.price <= priceMax
+
+      // Фильтрация по минимальной цене
+      if (priceMin !== null && priceMin !== undefined && priceMin !== '') {
+        isValid = isValid && productPrice >= priceMin
+      }
+
+      // Фильтрация по максимальной цене
+      if (priceMax !== null && priceMax !== undefined && priceMax !== '') {
+        isValid = isValid && productPrice <= priceMax
       }
 
       return isValid
     })
     .sort((a, b) => {
+      const priceA = a.discont_price !== null ? a.discont_price : a.price
+      const priceB = b.discont_price !== null ? b.discont_price : b.price
+
       switch (sort) {
         case 'newest':
           return new Date(b.createdAt) - new Date(a.createdAt)
-        case 'priceAsc':
-          return a.price - b.price
-        case 'priceDesc':
-          return b.price - a.price
+        case 'high-low':
+          return priceB - priceA
+        case 'low-high':
+          return priceA - priceB
         default:
-          return
+          return 0
       }
     })
 }

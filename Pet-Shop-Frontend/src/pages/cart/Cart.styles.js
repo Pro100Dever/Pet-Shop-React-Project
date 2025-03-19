@@ -34,3 +34,7 @@ export const TotalPrice = styled.p`
   font-size: 64px;
   line-height: 110%;
 `
+export const EmptyDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`

@@ -1,12 +1,9 @@
 import { useCategori } from './useCategori'
 
-export function useFilterData(products, categoriId, discount) {
+export function useFilterData(products, categoriId) {
   const { data, isSuccess } = useCategori('all')
   let newData = products
 
-  if (discount) {
-    newData = newData.filter(item => item.discont_price !== null)
-  }
   if (isSuccess) {
     if (categoriId !== 'all') {
       const category = data.find(item => item.title === categoriId)
@@ -14,6 +11,6 @@ export function useFilterData(products, categoriId, discount) {
     }
   }
 
-  console.log(newData)
+  // console.log(newData)
   return newData
 }

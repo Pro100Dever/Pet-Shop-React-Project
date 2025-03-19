@@ -12,7 +12,6 @@ export default function AnyList({
   hook = null,
   categoriId = 'all',
   productId = 'all',
-  discount = null,
 }) {
   const { data, isLoading, isSuccess, isError } =
     hook === 'categories'
@@ -27,8 +26,8 @@ export default function AnyList({
     newData = data
   }
   if (hook === 'products') {
-    newData = useFormFilter(newData, hook, categoriId, discount)
-    newData = useFilterData(newData, categoriId, discount)
+    newData = useFormFilter(newData)
+    newData = useFilterData(newData, categoriId)
   }
   if (home && newData && newData.length > 0) {
     newData = newData.slice(0, 4)

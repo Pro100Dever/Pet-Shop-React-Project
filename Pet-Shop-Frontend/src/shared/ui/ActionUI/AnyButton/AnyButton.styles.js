@@ -24,7 +24,6 @@ export const theme = {
 
 export const StyledBtn = styled.button`
   ${theme.style}
-
   width: ${props => props.width || '100%'};
   color: ${props => (props.type ? theme.colors.focus : theme.colors.basic)};
   background: ${props =>
@@ -43,4 +42,12 @@ export const StyledBtn = styled.button`
     border: ${props =>
       !props.type ? ` 1px solid ${theme.colors.focus}` : 'none'};
   }
+  ${props =>
+    props.absolute &&
+    `
+    position:absolute;
+    top:50%;
+    left:0;
+    z-index:99;
+  `}
 `

@@ -7,6 +7,7 @@ export default function AnyButton({
   width = '100%',
   type = null,
   succesForBtn = false,
+  absolute = null,
 }) {
   const [currentText, setCurrentText] = useState(text)
   const [isActive, setIsActive] = useState(false)
@@ -43,6 +44,7 @@ export default function AnyButton({
       width={width}
       type={type}
       className={isActive ? `active` : ''}
+      absolute={absolute}
       onClick={handleClick}
     >
       {currentText}

@@ -23,6 +23,7 @@ export const StyledListItem = styled.li`
   border-radius: 12px;
   max-width: 316px;
   width: 100%;
+  z-index: 7;
 `
 export const StyledDiscount = styled.div`
   position: absolute;
@@ -34,6 +35,7 @@ export const StyledDiscount = styled.div`
   color: white;
   font-weight: 600;
   letter-spacing: 3%;
+  z-index: 8;
 `
 
 export const StyledProductImg = styled.img`

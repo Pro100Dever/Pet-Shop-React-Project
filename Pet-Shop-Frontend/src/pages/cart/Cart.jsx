@@ -14,6 +14,7 @@ import { StyledLinie, StyledSection, TitleContainer } from '../home/Home.styles'
 import {
   CartContainer,
   CartOrderContainer,
+  EmptyDiv,
   TotalContainer,
   TotalCount,
   TotalPrice,
@@ -73,14 +74,15 @@ export default function Cart() {
                 </CartOrderContainer>
               </>
             ) : (
-              <>
-                <h3 style={{ marginBottom: '32px' }}>
+              <EmptyDiv>
+                <h3 style={{ marginBottom: '32px', flex: 1 }}>
                   Looks like you have no items in your basket currently.
                 </h3>
+
                 <Link to='/categories'>
                   <AnyButton text='Continue Shopping' width='312px' />
                 </Link>
-              </>
+              </EmptyDiv>
             )}
           </CartContainer>
         </StyledSection>

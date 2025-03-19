@@ -25,6 +25,8 @@ export default function ComplietedForm({
     email: '',
   })
   const cartOrderList = useSelector(state => state.cart)
+  console.log(cartOrderList)
+
   const info =
     submitType === 'Order'
       ? { user: userInfo, order: [...cartOrderList] }
