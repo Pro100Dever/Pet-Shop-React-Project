@@ -12,13 +12,13 @@ export const InputContainer = styled.div`
 `
 export const StyledInput = styled.input`
   border-radius: 4px;
-  background: transparent;
-  border: 1px solid #ffffff;
+  background: ${props => (props.formType ? 'transparent' : '#fff')};
+  border: ${props => (props.formType ? '1px solid #fff' : '1px solid #DDDDDD')};
   padding: 16px 32px;
   width: 100%;
-  color: #ffffff;
+  color: ${props => (props.formType ? '#fff' : '#8B8B8B')};
   ::placeholder {
-    color: #ffffff;
+    color: ${props => (props.formType ? '#fff' : '#8B8B8B')};
   }
 `
 

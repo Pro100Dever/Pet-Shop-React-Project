@@ -9,7 +9,13 @@ import {
   StyledInput,
 } from './ComplietedForm.styles'
 
-export default function ComplietedForm({ setIsSuccess }) {
+export default function ComplietedForm({
+  setIsSuccess,
+  formType = null,
+  type = null,
+  btnText = null,
+  btnActiveText = null,
+}) {
   const [succesForBtn, setSuccesForBtn] = useState(false)
   const [userInfo, setUserInfo] = useState({
     name: '',
@@ -82,9 +88,9 @@ export default function ComplietedForm({ setIsSuccess }) {
         <ErrorText>{errors.email && errors.email.message}</ErrorText>
       </InputContainer>
       <AnyButton
-        text='Get a discount'
-        activeText='Request Submitted'
-        type='negative'
+        text={btnText}
+        activeText={btnActiveText}
+        type={type}
         succesForBtn={succesForBtn}
       />
     </StyledForm>

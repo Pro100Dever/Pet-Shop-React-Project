@@ -11,8 +11,8 @@ export const CartListItem = styled.li`
   display: flex;
   align-items: center;
   gap: 32px;
-  max-width: 780px;
-  width: 100%;
+  width: 780px;
+
   border: 1px solid #dddddd;
   border-radius: 12px;
 `
@@ -30,14 +30,14 @@ export const CloseIcon = styled.img`
   }
 `
 export const StyledTitle = styled.h3`
-  max-width: 476px;
-  width: fit-content;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin-bottom: 32px;
   padding-bottom: 2px;
   position: relative;
+  display: inline-block;
+  max-width: 476px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &::before {
     content: '';

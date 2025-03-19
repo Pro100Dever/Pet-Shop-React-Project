@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CartList from '../../components/cartList/Cartlist'
@@ -11,8 +11,17 @@ import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import NavtTreeLink from '../../shared/ui/ActionUI/navTreeLink/NavtTreeLink'
 import SectionTitle from '../../shared/ui/ActionUI/SectionTitle'
 import { StyledLinie, StyledSection, TitleContainer } from '../home/Home.styles'
+import {
+  CartContainer,
+  CartOrderContainer,
+  TotalContainer,
+  TotalCount,
+  TotalPrice,
+  TotalTitle,
+} from './Cart.styles'
 
 export default function Cart() {
+  const [isSuccess, setIsSuccess] = useState(false)
   const cartList = useSelector(state => state.cart)
   const dispatch = useDispatch()
   useEffect(() => {
@@ -33,13 +42,23 @@ export default function Cart() {
               home='home'
             />
           </TitleContainer>
-          <div>
+          <CartContainer>
             {cartList.length > 0 ? (
               <>
                 <CartList cartList={cartList} />
-                <div>
-                  <ComplietedForm />
-                </div>
+                <CartOrderContainer>
+                  <TotalTitle>Order details</TotalTitle>
+                  <TotalContainer>
+                    <TotalCount>10 Items Total</TotalCount>
+                    <TotalPrice>$10,53</TotalPrice>
+                  </TotalContainer>
+                  <ComplietedForm
+                    formType='negative'
+                    btnActiveText={'Ordered'}
+                    btnText='Order'
+                    setIsSuccess={setIsSuccess}
+                  />
+                </CartOrderContainer>
               </>
             ) : (
               <>
@@ -51,9 +70,9 @@ export default function Cart() {
                 </Link>
               </>
             )}
-          </div>
+          </CartContainer>
         </StyledSection>
-        {false && <CongratulationsModal />}
+        {isSuccess && <CongratulationsModal />}
       </main>
       <Footer />
     </>

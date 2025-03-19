@@ -18,7 +18,12 @@ export default function Share() {
       <ShareContainer>
         <StyledIng src={pets} alt='' />
         {!isSuccess ? (
-          <ComplietedForm setIsSuccess={setIsSuccess} />
+          <ComplietedForm
+            setIsSuccess={setIsSuccess}
+            btnText='Get a discount'
+            btnActiveText='Request Submitted'
+            type='negative'
+          />
         ) : (
           <ComplietedText>
             Form Successfully Completed. You have been sent a coupon for a 5%
