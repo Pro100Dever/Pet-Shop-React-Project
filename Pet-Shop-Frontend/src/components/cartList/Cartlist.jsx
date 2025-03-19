@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { addItem, deleteItem } from '../../redux/slices/cartSlice'
+import { deleteItem, updateItem } from '../../redux/slices/cartSlice'
 import {
   PriceContainer,
   StyledCountBtn,
@@ -19,13 +19,13 @@ import {
 
 export default function CartList({ product }) {
   const URL = 'http://localhost:3333/'
-  const { id, image, price, discont_price, title, category, count } = product
+  const { image, price, discont_price, title, category, count } = product
   const dispatch = useDispatch()
 
   function handleChange(e) {
     e.preventDefault()
     dispatch(
-      addItem({
+      updateItem({
         ...product,
         count: Number(e.target.value) > 0 ? Number(e.target.value) : 1,
       })
@@ -33,12 +33,12 @@ export default function CartList({ product }) {
   }
   function handlePlus(e) {
     e.preventDefault()
-    dispatch(addItem({ ...product, count: count + 1 }))
+    dispatch(updateItem({ ...product, count: count + 1 }))
   }
   function handleMinus(e) {
     e.preventDefault()
-    if (count > 0) {
-      dispatch(addItem({ ...product, count: count - 1 }))
+    if (count > 1) {
+      dispatch(updateItem({ ...product, count: count - 1 }))
     }
   }
   function handleDelete() {

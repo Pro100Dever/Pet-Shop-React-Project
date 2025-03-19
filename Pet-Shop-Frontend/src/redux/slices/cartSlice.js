@@ -24,8 +24,13 @@ const cartSlice = createSlice({
       const localData = JSON.parse(localStorage.getItem('cartList')) || []
       return localData
     },
+    updateItem: (state, action) => {
+      const existingItem = state.find(item => item.id === action.payload.id)
+      existingItem.count = action.payload.count
+      localStorage.setItem('cartList', JSON.stringify(state))
+    },
   },
 })
 
-export const { addItem, deleteItem, localGet } = cartSlice.actions
+export const { addItem, deleteItem, localGet, updateItem } = cartSlice.actions
 export default cartSlice.reducer

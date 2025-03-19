@@ -24,7 +24,6 @@ export default function Cart() {
   const [isSuccess, setIsSuccess] = useState(false)
   const cartList = useSelector(state => state.cart)
   const totalProductCount = cartList.reduce((acc, item) => item.count + acc, 0)
-  console.log(cartList)
 
   const totalPrice = cartList
     .reduce(
@@ -35,8 +34,6 @@ export default function Cart() {
       0
     )
     .toFixed(2)
-
-  console.log(cartList)
 
   return (
     <>
@@ -87,7 +84,7 @@ export default function Cart() {
             )}
           </CartContainer>
         </StyledSection>
-        {isSuccess && <CongratulationsModal />}
+        {isSuccess && <CongratulationsModal setIsSuccess={setIsSuccess} />}
       </main>
       <Footer />
     </>

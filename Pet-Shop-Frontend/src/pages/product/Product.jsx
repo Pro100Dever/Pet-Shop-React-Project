@@ -8,6 +8,7 @@ import { useProduct } from '../../shared/hooks/useProduct'
 import {
   ActionContainer,
   ImgContainer,
+  ReadBtn,
   StyledContainer,
   StyledDescription,
   StyledImg,
@@ -58,9 +59,9 @@ export default function Product() {
                     </StyledDescription>
                   )}
 
-                  <button onClick={() => setDescIsActive(!descIsActive)}>
+                  <ReadBtn onClick={() => setDescIsActive(!descIsActive)}>
                     {descIsActive ? 'Hide text' : 'Read more'}
-                  </button>
+                  </ReadBtn>
                 </div>
               </ActionContainer>
             </StyledContainer>

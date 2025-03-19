@@ -81,4 +81,7 @@ export const StyledCountBtn = styled.button`
   border-radius: ${props =>
     props.side === 'left' ? '0 8px 8px 0' : ' 8px 0 0 8px'};
   border: 1px solid #dddddd;
+  &:hover {
+    cursor: pointer;
+  }
 `

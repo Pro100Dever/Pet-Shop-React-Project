@@ -38,3 +38,16 @@ export const ActionContainer = styled.div`
 export const StyledSection = styled.section`
   padding: 0 40px;
 `
+export const ReadBtn = styled.button`
+  border: none;
+  border-bottom: 1px solid #282828;
+  background: transparent;
+  font-size: 16px;
+  transition: all 0.4s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.2s;
+  }
+`

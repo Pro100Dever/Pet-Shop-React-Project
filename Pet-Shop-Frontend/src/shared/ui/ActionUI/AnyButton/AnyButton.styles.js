@@ -33,6 +33,7 @@ export const StyledBtn = styled.button`
   &:hover {
     color: ${props => (props.type ? theme.colors.basic : theme.colors.hover)};
     background: ${theme.background.hover};
+    cursor: pointer;
   }
 
   &.active {
