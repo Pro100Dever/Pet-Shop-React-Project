@@ -26,7 +26,6 @@ export default function Product() {
   if (isSuccess) {
     newData = data.filter(product => product.title === productId)
     newData = { ...newData[0] }
-    console.log(newData)
   }
   const { description, image } = newData
 

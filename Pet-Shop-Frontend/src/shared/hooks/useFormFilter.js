@@ -10,8 +10,8 @@ export function useFormFilter(products) {
     return products
   }
 
-  console.log(products)
-  console.log(filters)
+  // console.log(products)
+  // console.log(filters)
 
   products = filterProducts(products, filters)
 

@@ -1,19 +1,22 @@
 import CartList from '../components/cartList/Cartlist'
-import ComplietedForm from '../components/complietedForm/ComplietedForm'
 import CongratulationsModal from '../components/congratulations/CongratulationsModal'
 import Footer from '../layouts/footer/Footer'
 import Header from '../layouts/header/Header'
 import SectionTitle from '../shared/ui/ActionUI/SectionTitle'
+import { StyledSection } from './home/Home.styles'
+
 export default function Cart() {
   return (
     <>
       <Header />
       <main>
-        <SectionTitle text='Cart' />
-        <div>
-          <CartList />
-          <ComplietedForm />
-        </div>
+        <StyledSection>
+          <SectionTitle text='Shopping cart' />
+          <div>
+            <CartList />
+            {/* <ComplietedForm /> */}
+          </div>
+        </StyledSection>
         {false && <CongratulationsModal />}
       </main>
       <Footer />

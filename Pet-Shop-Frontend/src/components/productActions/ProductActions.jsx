@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { addItem } from '../../redux/slices/cartSclice'
+import { addItem } from '../../redux/slices/cartSlice'
 import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import {
   ActionContainer,
@@ -17,10 +17,9 @@ import {
 } from './PoductActions'
 
 export default function ProductActions({ product }) {
-  console.log(product)
-
   const [succesForBtn, setSuccesForBtn] = useState(false)
   const dispatch = useDispatch()
+
   const { register, handleSubmit, setValue, watch } = useForm({
     defaultValues: {
       count: 1,
@@ -40,9 +39,6 @@ export default function ProductActions({ product }) {
   }
   function onSubmit(data) {
     setSuccesForBtn('succes')
-    let cartList = JSON.parse(localStorage.getItem('cartList')) || []
-    cartList.push({ ...product, count: data.count })
-    localStorage.setItem('cartList', JSON.stringify(cartList))
     dispatch(addItem({ ...product, count: data.count }))
   }
 

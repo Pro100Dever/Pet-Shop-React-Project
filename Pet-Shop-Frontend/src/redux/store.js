@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import cartSclice from './slices/cartSclice'
+import cartSlice from './slices/cartSlice'
 import formFilterSlice from './slices/formFilterSlice'
 
 const store = configureStore({
   reducer: {
     filters: formFilterSlice,
-    cart: cartSclice,
+    cart: cartSlice,
   },
 })
 
