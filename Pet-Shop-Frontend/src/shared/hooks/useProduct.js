@@ -5,7 +5,7 @@ const getProduct = async productsId => {
   try {
     return await axios.get(`http://localhost:3333/products/${productsId}`)
   } catch (error) {
-    console.log(error)
+    throw new error()
   }
 }
 export function useProduct(productsId = 'all') {

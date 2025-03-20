@@ -26,10 +26,8 @@ export default function AnyButton({
   function handleClick() {
     if (handleAddClick) {
       handleAddClick()
-      console.log('in')
     }
     getCheck()
-    console.log('after')
   }
   useEffect(() => {
     getCheck()

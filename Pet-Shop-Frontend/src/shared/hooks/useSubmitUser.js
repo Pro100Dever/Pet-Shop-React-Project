@@ -5,14 +5,14 @@ const postUserInfo = async info => {
   try {
     return await axios.post(`http://localhost:3333/sale/send`, info)
   } catch (error) {
-    console.log(error)
+    throw new error()
   }
 }
 const postOrderInfo = async info => {
   try {
     return await axios.post(`http://localhost:3333/order/send`, info)
   } catch (error) {
-    console.log(error)
+    throw new error()
   }
 }
 export function useSubmitUser(info, type) {

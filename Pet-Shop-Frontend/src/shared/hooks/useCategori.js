@@ -5,7 +5,7 @@ const getCategories = async categoriesId => {
   try {
     return await axios.get(`http://localhost:3333/categories/${categoriesId}`)
   } catch (error) {
-    console.log(error)
+    throw new error()
   }
 }
 export function useCategori(categoriesId = 'all') {

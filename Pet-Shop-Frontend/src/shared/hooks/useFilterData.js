@@ -11,6 +11,5 @@ export function useFilterData(products, categoriId) {
     }
   }
 
-  // console.log(newData)
   return newData
 }
