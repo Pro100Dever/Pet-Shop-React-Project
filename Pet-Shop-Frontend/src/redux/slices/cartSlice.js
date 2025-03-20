@@ -45,8 +45,10 @@ const cartSlice = createSlice({
       state.discount = true
       localStorage.setItem('promo', JSON.stringify(true))
     },
-    deleteDiscount: state => {
+    completeOrder: state => {
       state.discount = false
+      state.cart = []
+      localStorage.removeItem('cartList')
       localStorage.setItem('promo', JSON.stringify(false))
     },
   },
@@ -57,7 +59,7 @@ export const {
   deleteItem,
   localGet,
   updateItem,
+  completeOrder,
   updateDiscount,
-  deleteDiscount,
 } = cartSlice.actions
 export default cartSlice.reducer

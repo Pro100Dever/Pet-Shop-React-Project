@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteDiscount, updateDiscount } from '../../redux/slices/cartSlice'
+import { completeOrder, updateDiscount } from '../../redux/slices/cartSlice'
 import { useSubmitUser } from '../../shared/hooks/useSubmitUser'
 import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import {
@@ -44,7 +44,7 @@ export default function ComplietedForm({
     if (isSuccess) {
       submitType !== 'Order'
         ? dispatch(updateDiscount())
-        : dispatch(deleteDiscount())
+        : dispatch(completeOrder())
 
       setSuccesForBtn(true)
       setIsSuccess(true)
