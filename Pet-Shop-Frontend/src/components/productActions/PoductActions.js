@@ -73,9 +73,11 @@ export const StyledInput = styled.input`
 `
 
 export const StyledCountBtn = styled.button`
-  background: ${props =>
-      props.side === 'left' ? `url('/plus.svg')` : `url('/minus.svg')`}
-    center center no-repeat;
+  background: transparent;
+  background-image: ${props =>
+    props.side === 'left' ? `url('/plus.svg')` : `url('/minus.svg')`};
+  background-position: center center;
+  background-repeat: no-repeat;
   width: 58px;
   height: 58px;
   border-radius: ${props =>
@@ -83,5 +85,7 @@ export const StyledCountBtn = styled.button`
   border: 1px solid #dddddd;
   &:hover {
     cursor: pointer;
+    background-color: rgba(8, 8, 8, 0.07);
+    transition: all 0.2s linear;
   }
 `
