@@ -24,14 +24,10 @@ export default function ProductsListItem({ listItem, categoriId }) {
   const discountProcent =
     discont_price && Math.floor(((price - discont_price) / price) * 100)
 
-  //////////////////////////////////////
   function handleAddClick() {
-    console.log({ ...listItem, categoriId })
-
     setSuccesForBtn('succes')
     dispatch(addItem({ ...listItem, categoriId, count: 1 }))
   }
-  //////////////////////////////////////////////
 
   return (
     <StyledListItem
