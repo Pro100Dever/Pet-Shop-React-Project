@@ -66,11 +66,11 @@ export default function CartList({ product }) {
           <CartPriceContainer>
             {discont_price && (
               <DiscountCartPrice>
-                {'$' + (discont_price * count).toFixed(2)}
+                ${(discont_price * count).toFixed(2)}
               </DiscountCartPrice>
             )}
             <CartItemPrice discount={discont_price}>
-              {'$' + (price * count).toFixed(2)}
+              $ {(price * count).toFixed(2)}
             </CartItemPrice>
           </CartPriceContainer>
         </ActionsConainer>

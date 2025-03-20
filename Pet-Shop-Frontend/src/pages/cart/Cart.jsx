@@ -25,19 +25,20 @@ export default function Cart() {
   const [isSuccess, setIsSuccess] = useState(false)
 
   const discount = useSelector(state => state.cart.discount)
-  console.log(discount)
   const cartList = useSelector(state => state.cart.cart)
   const totalProductCount = cartList.reduce((acc, item) => item.count + acc, 0)
 
-  const totalPrice = cartList
-    .reduce(
-      (acc, item) =>
-        item.discont_price
-          ? item.discont_price * item.count + acc
-          : item.price * item.count + acc,
-      0
-    )
-    .toFixed(2)
+  let discountPrice
+  const totalPrice = cartList.reduce(
+    (acc, item) =>
+      item.discont_price
+        ? item.discont_price * item.count + acc
+        : item.price * item.count + acc,
+    0
+  )
+  if (discount) {
+    discountPrice = totalPrice * 0.95
+  }
 
   return (
     <>
@@ -66,7 +67,12 @@ export default function Cart() {
                   <TotalContainer>
                     <TotalCount>{totalProductCount} Items Total</TotalCount>
                     <div>
-                      d<TotalPrice>${totalPrice}</TotalPrice>
+                      <TotalPrice discount={discount}>
+                        ${totalPrice.toFixed(2)}
+                      </TotalPrice>
+                      {discount && (
+                        <TotalPrice>${discountPrice.toFixed(2)}</TotalPrice>
+                      )}
                     </div>
                   </TotalContainer>
                   <ComplietedForm

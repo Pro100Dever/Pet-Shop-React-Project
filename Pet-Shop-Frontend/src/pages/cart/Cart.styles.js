@@ -30,10 +30,19 @@ export const TotalCount = styled.p`
   max-width: 230px;
 `
 export const TotalPrice = styled.p`
-  font-weight: 700;
-  font-size: 64px;
-  line-height: 110%;
+  ${props =>
+    props.discount
+      ? `
+    font-size: 40px;
+    text-decoration: line-through;
+    color:#8B8B8B;
 `
+      : `
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 110%;`}
+`
+
 export const EmptyDiv = styled.div`
   display: flex;
   flex-direction: column;
