@@ -45,7 +45,7 @@ export default function Cart() {
       <Header />
       <main>
         <StyledSection>
-          <TitleContainer>
+          <TitleContainer style={{ marginTop: '40px' }}>
             <SectionTitle text='Shopping cart' />
             <StyledLinie />
             <NavTreeLink

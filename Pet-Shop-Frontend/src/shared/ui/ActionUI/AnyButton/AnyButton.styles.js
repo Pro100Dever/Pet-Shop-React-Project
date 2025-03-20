@@ -28,11 +28,13 @@ export const StyledBtn = styled.button`
   color: ${props => (props.type ? theme.colors.focus : theme.colors.basic)};
   background: ${props =>
     props.type ? theme.background.focus : theme.background.basic};
+  transition: all 0.2s linear;
 
   &:hover {
     color: ${props => (props.type ? theme.colors.basic : theme.colors.hover)};
     background: ${theme.background.hover};
     cursor: pointer;
+    transition: all 0.2s linear;
   }
 
   &.active {

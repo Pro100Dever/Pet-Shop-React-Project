@@ -12,37 +12,35 @@ export default function AnyButton({
 }) {
   const [currentText, setCurrentText] = useState(text)
   const [isActive, setIsActive] = useState(false)
-
-  function getCheck() {
-    if (succesForBtn) {
-      setIsActive(true)
-
-      if (activeText) {
-        setCurrentText(activeText)
-      }
-    }
-  }
-
   function handleClick() {
     if (handleAddClick) {
       handleAddClick()
     }
-    getCheck()
+
+    if (succesForBtn) {
+      setIsActive(true)
+      setCurrentText(activeText || text)
+
+      setTimeout(() => {
+        setCurrentText(text)
+        setIsActive(false)
+      }, 500)
+    }
   }
-  useEffect(() => {
-    getCheck()
-  }, [succesForBtn, activeText])
 
   useEffect(() => {
-    if (isActive) {
-      const id = setTimeout(() => {
+    if (succesForBtn) {
+      setIsActive(true)
+      setCurrentText(activeText || text)
+
+      const timeoutId = setTimeout(() => {
         setCurrentText(text)
         setIsActive(false)
       }, 500)
 
-      return () => clearTimeout(id)
+      return () => clearTimeout(timeoutId)
     }
-  }, [isActive, text])
+  }, [succesForBtn])
 
   return (
     <StyledBtn

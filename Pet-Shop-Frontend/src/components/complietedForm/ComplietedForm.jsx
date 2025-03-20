@@ -48,6 +48,11 @@ export default function ComplietedForm({
 
       setSuccesForBtn(true)
       setIsSuccess(true)
+
+      const id = setTimeout(() => {
+        setSuccesForBtn(false)
+      }, 500)
+      return () => clearTimeout(id)
     }
   }, [isSuccess])
 

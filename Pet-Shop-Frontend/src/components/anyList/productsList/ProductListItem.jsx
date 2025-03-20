@@ -27,6 +27,10 @@ export default function ProductsListItem({ listItem, categoriId }) {
   function handleAddClick() {
     setSuccesForBtn(true)
     dispatch(addItem({ ...listItem, categoriId, count: 1 }))
+    const id = setTimeout(() => {
+      setSuccesForBtn(false)
+    }, 500)
+    return () => clearTimeout(id)
   }
 
   return (

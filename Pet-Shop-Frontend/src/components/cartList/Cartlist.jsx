@@ -1,3 +1,5 @@
+import 'animate.css'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { deleteItem, updateItem } from '../../redux/slices/cartSlice'
@@ -19,6 +21,7 @@ import {
 
 export default function CartList({ product }) {
   const URL = 'http://localhost:3333/'
+  const [isDelete, setIsDelete] = useState(false)
   const { image, price, discont_price, title, category, count } = product
   const dispatch = useDispatch()
 
@@ -42,11 +45,20 @@ export default function CartList({ product }) {
     }
   }
   function handleDelete() {
-    dispatch(deleteItem(product))
+    setIsDelete(true)
+    const id = setTimeout(() => {
+      dispatch(deleteItem(product))
+    }, 500)
+    return () => clearTimeout(id)
   }
 
   return (
-    <CartListItem>
+    <CartListItem
+      className={`animate__animated animate__faster ${
+        isDelete ? 'animate__fadeOutUp' : ''
+      }`}
+      style={{ animationTimingFunction: 'ease-in' }}
+    >
       <CartImg src={URL + image} alt='image' />
       <div>
         <Link to={`/categories/${category}/${title}`}>

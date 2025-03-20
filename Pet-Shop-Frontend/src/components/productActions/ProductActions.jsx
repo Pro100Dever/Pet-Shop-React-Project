@@ -43,6 +43,10 @@ export default function ProductActions({ product }) {
   function onSubmit(data) {
     setSuccesForBtn('succes')
     dispatch(addItem({ ...product, count: data.count, category: categoryId }))
+    const id = setTimeout(() => {
+      setSuccesForBtn(false)
+    }, 500)
+    return () => clearTimeout(id)
   }
 
   const discountProcent =

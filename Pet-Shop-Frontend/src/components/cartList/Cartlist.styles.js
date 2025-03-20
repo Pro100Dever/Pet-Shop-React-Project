@@ -25,8 +25,11 @@ export const CloseIcon = styled.img`
   position: absolute;
   top: 38px;
   right: 38px;
+  transition: all 0.1s linear;
   &:hover {
     cursor: pointer;
+    transform: scale(1.2);
+    transition: all 0.1s linear;
   }
 `
 export const StyledTitle = styled.h3`
