@@ -8,7 +8,7 @@ import CategoriesListItem from './categoriesList/CategoriesListItem'
 import ProductsListItem from './productsList/ProductListItem'
 
 export default function AnyList({
-  home = null,
+  home = false,
   hook = null,
   categoriId = 'all',
   productId = 'all',

@@ -51,7 +51,7 @@ export default function Cart() {
             <NavTreeLink
               text='Back to the store'
               path='/allProducts'
-              home='home'
+              home={true}
             />
           </TitleContainer>
           <CartContainer>

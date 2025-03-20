@@ -1,9 +1,11 @@
 // import ProductForm from '../../components/productForm/ProductForm'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import PathTree from '../../components/pathTree/PathTree'
 import ProductActions from '../../components/productActions/ProductActions'
 import Footer from '../../layouts/footer/Footer'
 import Header from '../../layouts/header/Header'
+import { useCategori } from '../../shared/hooks/useCategori'
 import { useProduct } from '../../shared/hooks/useProduct'
 import {
   ActionContainer,
@@ -19,23 +21,44 @@ import {
 export default function Product() {
   const BACK_URL = 'http://localhost:3333'
   const [descIsActive, setDescIsActive] = useState(false)
-  const { categoryId, productId } = useParams()
-  const { data, isError, isLoading, isSuccess } = useProduct()
+  const { productId } = useParams()
 
+  const { data: categoryData, isSuccess: categoryIsSuccess } = useCategori()
+  const {
+    data: productData,
+    isSuccess: productIsSuccess,
+    isError: productIsError,
+    isLoading: productIsLoading,
+  } = useProduct()
+
+  let categoryForPath
   let newData = {}
-  if (isSuccess) {
-    newData = data.filter(product => product.title === productId)
+
+  if (productIsSuccess) {
+    newData = productData.filter(product => product.title === productId)
     newData = { ...newData[0] }
   }
-  const { description, image } = newData
+
+  const { description, image, categoryId } = newData
+
+  if (categoryIsSuccess) {
+    categoryForPath = categoryData.find(item => item.id === categoryId)
+  }
 
   return (
     <>
       <Header />
       <main>
+        {productIsError && <h3>Error!!!</h3>}
+        {productIsLoading && <h3>...Loading</h3>}
         <StyledSection>
-          {/* <PathTree /> */}
-          {isSuccess && (
+          {categoryIsSuccess && (
+            <PathTree
+              categoryId={categoryForPath.title}
+              productId={productId}
+            />
+          )}
+          {productIsSuccess && (
             <StyledContainer>
               <ImgContainer>
                 <StyledImg src={BACK_URL + image} alt='prodImg' />
