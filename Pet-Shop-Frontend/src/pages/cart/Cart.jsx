@@ -8,7 +8,7 @@ import CongratulationsModal from '../../components/congratulations/Congratulatio
 import Footer from '../../layouts/footer/Footer'
 import Header from '../../layouts/header/Header'
 import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
-import NavtTreeLink from '../../shared/ui/ActionUI/navTreeLink/NavtTreeLink'
+import NavTreeLink from '../../shared/ui/ActionUI/navTreeLink/NavTreeLink'
 import SectionTitle from '../../shared/ui/ActionUI/SectionTitle'
 import { StyledLinie, StyledSection, TitleContainer } from '../home/Home.styles'
 import {
@@ -48,7 +48,7 @@ export default function Cart() {
           <TitleContainer>
             <SectionTitle text='Shopping cart' />
             <StyledLinie />
-            <NavtTreeLink
+            <NavTreeLink
               text='Back to the store'
               path='/allProducts'
               home='home'

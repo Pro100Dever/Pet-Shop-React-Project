@@ -34,7 +34,7 @@ export default function Header() {
         <StyledNavLink to='/'>Main Page</StyledNavLink>
         <StyledNavLink to='/categories'>Categories</StyledNavLink>
         <StyledNavLink to='/allProducts'>All products</StyledNavLink>
-        <StyledNavLink to='/discountedProducts'>All sales</StyledNavLink>
+        <StyledNavLink to='/discountedItems'>All sales</StyledNavLink>
       </StyledNav>
       <CartContainer>
         <Link to='/cart'>

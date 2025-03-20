@@ -8,7 +8,7 @@ export default function News() {
       <NewsContainer></NewsContainer>
       <div>
         <NewsTitile>Amazing Discounts on Pets Products!</NewsTitile>
-        <Link to='/discountedProducts'>
+        <Link to='/discountedItems'>
           <AnyButton text='Check out' activeText='Checked' width='218px' />
         </Link>
       </div>

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-export const StyledNavTreeLink = styled(Link)`
+export const StyledNavTreeLink = styled(NavLink)`
   display: block;
   margin-bottom: ${props => (props.home ? '20px' : '0')};
   padding: 8px 16px;

@@ -3,7 +3,7 @@ import AllProducts from './pages/AllProducts'
 import Cart from './pages/cart/Cart'
 import Categories from './pages/Categories'
 import CategoriProducts from './pages/CategoriProducts'
-import DiscountedProducts from './pages/DiscountedProducts'
+import DiscountedItems from './pages/DiscountedItems'
 import Home from './pages/home/Home'
 import NotFound from './pages/notFound/NotFound'
 import Product from './pages/product/Product'
@@ -23,7 +23,7 @@ function App() {
         />
 
         <Route path='/allProducts' element={<AllProducts />} />
-        <Route path='/discountedProducts' element={<DiscountedProducts />} />
+        <Route path='/discountedItems' element={<DiscountedItems />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

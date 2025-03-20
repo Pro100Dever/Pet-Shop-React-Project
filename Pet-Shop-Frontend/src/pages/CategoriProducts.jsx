@@ -14,7 +14,7 @@ export default function CategoriProducts() {
       <Header />
       <main>
         <StyledSection>
-          {/* <PathTree /> */}
+          <PathTree />
           <SectionTitle text={categoryId} />
           <Filter />
           <AnyList hook='products' categoriId={categoryId} />

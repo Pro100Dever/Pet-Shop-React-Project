@@ -3,7 +3,7 @@ import News from '../../components/news/News'
 import Share from '../../components/share/Share'
 import Footer from '../../layouts/footer/Footer'
 import Header from '../../layouts/header/Header'
-import NavtTreeLink from '../../shared/ui/ActionUI/navTreeLink/NavtTreeLink'
+import NavTreeLink from '../../shared/ui/ActionUI/navTreeLink/NavTreeLink'
 import SectionTitle from '../../shared/ui/ActionUI/SectionTitle'
 import { StyledLinie, StyledSection, TitleContainer } from './Home.styles'
 
@@ -17,11 +17,7 @@ export default function Home() {
           <TitleContainer>
             <SectionTitle text='Categories' />
             <StyledLinie />
-            <NavtTreeLink
-              text='All categories'
-              path='/categories'
-              home='home'
-            />
+            <NavTreeLink text='All categories' path='/categories' home='home' />
           </TitleContainer>
           <AnyList hook='categories' home='home' />
         </StyledSection>
@@ -30,11 +26,7 @@ export default function Home() {
           <TitleContainer>
             <SectionTitle text='Sale' />
             <StyledLinie />
-            <NavtTreeLink
-              text='All sales'
-              path='/discountedProducts'
-              home='home'
-            />
+            <NavTreeLink text='All sales' path='/discountedItems' home='home' />
           </TitleContainer>
           <AnyList hook='products' home='home' discount='discount' />
         </StyledSection>
