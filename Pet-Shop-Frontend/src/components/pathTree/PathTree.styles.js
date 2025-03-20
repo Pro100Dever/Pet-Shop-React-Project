@@ -10,3 +10,7 @@ export const StyledDiv = styled.div`
   width: 16px;
   border: 1px solid #dddddd;
 `
+export const StyledContainer = styled.div`
+  display: flex;
+  align-items: center;
+`

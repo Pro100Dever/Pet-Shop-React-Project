@@ -25,7 +25,7 @@ export default function ProductsListItem({ listItem, categoriId }) {
     discont_price && Math.floor(((price - discont_price) / price) * 100)
 
   function handleAddClick() {
-    setSuccesForBtn('succes')
+    setSuccesForBtn(true)
     dispatch(addItem({ ...listItem, categoriId, count: 1 }))
   }
 
