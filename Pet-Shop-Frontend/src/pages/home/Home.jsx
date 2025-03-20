@@ -17,18 +17,18 @@ export default function Home() {
           <TitleContainer>
             <SectionTitle text='Categories' />
             <StyledLinie />
-            <NavTreeLink text='All categories' path='/categories' home={true} />
+            <NavTreeLink text='All categories' path='/categories' home='home' />
           </TitleContainer>
-          <AnyList hook='categories' home={true} />
+          <AnyList hook='categories' home='home' />
         </StyledSection>
         <Share />
         <StyledSection>
           <TitleContainer>
             <SectionTitle text='Sale' />
             <StyledLinie />
-            <NavTreeLink text='All sales' path='/discountedItems' home={true} />
+            <NavTreeLink text='All sales' path='/discountedItems' home='home' />
           </TitleContainer>
-          <AnyList hook='products' home={true} discount='discount' />
+          <AnyList hook='products' home='home' discount='discount' />
         </StyledSection>
       </main>
       <Footer />

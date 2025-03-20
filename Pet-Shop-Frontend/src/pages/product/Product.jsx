@@ -51,14 +51,15 @@ export default function Product() {
       <main>
         {productIsError && <h3>Error!!!</h3>}
         {productIsLoading && <h3>...Loading</h3>}
-        <StyledSection>
-          {categoryIsSuccess && (
-            <PathTree
-              categoryId={categoryForPath.title}
-              productId={productId}
-            />
-          )}
-          {productIsSuccess && (
+        {productIsSuccess && (
+          <StyledSection>
+            {categoryIsSuccess && (
+              <PathTree
+                categoryId={categoryForPath.title}
+                productId={productId}
+              />
+            )}
+
             <StyledContainer>
               <ImgContainer>
                 <StyledImg src={BACK_URL + image} alt='prodImg' />
@@ -88,8 +89,8 @@ export default function Product() {
                 </div>
               </ActionContainer>
             </StyledContainer>
-          )}
-        </StyledSection>
+          </StyledSection>
+        )}
       </main>
       <Footer />
     </>

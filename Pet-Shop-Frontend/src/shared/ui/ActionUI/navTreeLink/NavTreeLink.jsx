@@ -1,6 +1,6 @@
 import { StyledNavTreeLink } from './NavTreeLink.styles'
 
-export default function NavTreeLink({ text, path = '/', home = false }) {
+export default function NavTreeLink({ text, path = '/', home = null }) {
   return (
     <StyledNavTreeLink
       to={path}
