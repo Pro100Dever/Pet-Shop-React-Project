@@ -13,9 +13,10 @@ export default function AnyButton({
   const [currentText, setCurrentText] = useState(text)
   const [isActive, setIsActive] = useState(false)
 
-  function getChexk() {
+  function getCheck() {
     if (succesForBtn) {
       setIsActive(true)
+
       if (activeText) {
         setCurrentText(activeText)
       }
@@ -25,11 +26,13 @@ export default function AnyButton({
   function handleClick() {
     if (handleAddClick) {
       handleAddClick()
+      console.log('in')
     }
-    getChexk()
+    getCheck()
+    console.log('after')
   }
   useEffect(() => {
-    getChexk()
+    getCheck()
   }, [succesForBtn, activeText])
 
   useEffect(() => {

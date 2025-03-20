@@ -16,7 +16,7 @@ import {
 
 export default function ProductsListItem({ listItem, categoriId }) {
   const BASE_URL = 'http://localhost:3333/'
-  const [sccesForBtn, setSuccesForBtn] = useState(false)
+  const [succesForBtn, setSuccesForBtn] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
   const { title, image, price, discont_price } = listItem
@@ -55,7 +55,7 @@ export default function ProductsListItem({ listItem, categoriId }) {
           handleAddClick={handleAddClick}
           text='Add to cart'
           activeText='Added'
-          sccesForBtn={sccesForBtn}
+          succesForBtn={succesForBtn}
           absolute='absolute'
         />
       )}
