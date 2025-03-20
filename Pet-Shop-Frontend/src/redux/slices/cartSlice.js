@@ -36,7 +36,8 @@ const cartSlice = createSlice({
 
     localGet: (state, action) => {
       const localDataCart = JSON.parse(localStorage.getItem('cartList')) || []
-      const localDataDiscount = JSON.parse(localStorage.getItem('promo')) || []
+      const localDataDiscount =
+        JSON.parse(localStorage.getItem('promo')) || false
       state.cart = localDataCart
       state.discount = localDataDiscount
     },

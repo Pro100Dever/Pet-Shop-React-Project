@@ -23,11 +23,10 @@ import {
 
 export default function Cart() {
   const [isSuccess, setIsSuccess] = useState(false)
-
-  const discount = useSelector(state => state.cart.discount)
   const cartList = useSelector(state => state.cart.cart)
-  const totalProductCount = cartList.reduce((acc, item) => item.count + acc, 0)
+  const discount = useSelector(state => state.cart.discount)
 
+  const totalProductCount = cartList.reduce((acc, item) => item.count + acc, 0)
   let discountPrice
   const totalPrice = cartList.reduce(
     (acc, item) =>
@@ -36,6 +35,7 @@ export default function Cart() {
         : item.price * item.count + acc,
     0
   )
+
   if (discount) {
     discountPrice = totalPrice * 0.95
   }

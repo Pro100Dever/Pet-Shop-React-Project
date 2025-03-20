@@ -2,6 +2,26 @@ import styled from '@emotion/styled'
 import { NavLink } from 'react-router-dom'
 
 export const StyledNavLink = styled(NavLink)`
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: #18272f;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.1s ease-in-out;
+  }
+
+  &:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
   &.active {
     color: blue;
   }
