@@ -20,14 +20,12 @@ const cartSlice = createSlice({
       }
       localStorage.setItem('cartList', JSON.stringify(state.cart))
     },
+
     deleteItem: (state, action) => {
       state.cart = state.cart.filter(item => item.id !== action.payload.id)
       localStorage.setItem('cartList', JSON.stringify(state.cart))
     },
-    localGet: (state, action) => {
-      const localData = JSON.parse(localStorage.getItem('cartList')) || []
-      state.cart = localData
-    },
+
     updateItem: (state, action) => {
       const existingItem = state.cart.find(
         item => item.id === action.payload.id
@@ -35,8 +33,31 @@ const cartSlice = createSlice({
       existingItem.count = action.payload.count
       localStorage.setItem('cartList', JSON.stringify(state.cart))
     },
+
+    localGet: (state, action) => {
+      const localDataCart = JSON.parse(localStorage.getItem('cartList')) || []
+      const localDataDiscount = JSON.parse(localStorage.getItem('promo')) || []
+      state.cart = localDataCart
+      state.discount = localDataDiscount
+    },
+
+    updateDiscount: state => {
+      state.discount = true
+      localStorage.setItem('promo', JSON.stringify(true))
+    },
+    deleteDiscount: state => {
+      state.discount = false
+      localStorage.setItem('promo', JSON.stringify(false))
+    },
   },
 })
 
-export const { addItem, deleteItem, localGet, updateItem } = cartSlice.actions
+export const {
+  addItem,
+  deleteItem,
+  localGet,
+  updateItem,
+  updateDiscount,
+  deleteDiscount,
+} = cartSlice.actions
 export default cartSlice.reducer

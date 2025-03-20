@@ -23,6 +23,9 @@ import {
 
 export default function Cart() {
   const [isSuccess, setIsSuccess] = useState(false)
+
+  const discount = useSelector(state => state.cart.discount)
+  console.log(discount)
   const cartList = useSelector(state => state.cart.cart)
   const totalProductCount = cartList.reduce((acc, item) => item.count + acc, 0)
 
@@ -62,7 +65,9 @@ export default function Cart() {
                   <TotalTitle>Order details</TotalTitle>
                   <TotalContainer>
                     <TotalCount>{totalProductCount} Items Total</TotalCount>
-                    <TotalPrice>${totalPrice}</TotalPrice>
+                    <div>
+                      d<TotalPrice>${totalPrice}</TotalPrice>
+                    </div>
                   </TotalContainer>
                   <ComplietedForm
                     formType='negative'

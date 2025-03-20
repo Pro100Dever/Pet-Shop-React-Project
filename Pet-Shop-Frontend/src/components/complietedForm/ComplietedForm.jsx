@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteDiscount, updateDiscount } from '../../redux/slices/cartSlice'
 import { useSubmitUser } from '../../shared/hooks/useSubmitUser'
 import AnyButton from '../../shared/ui/ActionUI/AnyButton/AnyButton'
 import {
@@ -24,6 +25,7 @@ export default function ComplietedForm({
     number: '',
     email: '',
   })
+  const dispatch = useDispatch()
   const cartOrderList = useSelector(state => state.cart.cart)
 
   const info =
@@ -40,6 +42,10 @@ export default function ComplietedForm({
 
   useEffect(() => {
     if (isSuccess) {
+      submitType !== 'Order'
+        ? dispatch(updateDiscount())
+        : dispatch(deleteDiscount())
+
       setSuccesForBtn(true)
       setIsSuccess(true)
     }
