@@ -5,6 +5,7 @@ import {
   InfoBlockTitle,
   InfoContainer,
   SocialContainer,
+  SociaLink,
   StyledFooter,
   StyledFooterContainer,
 } from './Footer.styles'
@@ -25,12 +26,12 @@ export default function Footer() {
           <InfoBlock>
             <InfoBlockTitle>Socials</InfoBlockTitle>
             <SocialContainer>
-              <a href='https://www.instagram.com/'>
+              <SociaLink href='https://www.instagram.com/'>
                 <img src={insta} alt='InstIcon' />
-              </a>
-              <a href='https://www.whatsapp.com/?lang=de_DE'>
+              </SociaLink>
+              <SociaLink href='https://www.whatsapp.com/?lang=de_DE'>
                 <img src={watsapp} alt='watsapp' />
-              </a>
+              </SociaLink>
             </SocialContainer>
           </InfoBlock>
           <InfoBlock>

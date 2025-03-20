@@ -48,7 +48,7 @@ export default function CartList({ product }) {
     setIsDelete(true)
     const id = setTimeout(() => {
       dispatch(deleteItem(product))
-    }, 500)
+    }, 300)
     return () => clearTimeout(id)
   }
 

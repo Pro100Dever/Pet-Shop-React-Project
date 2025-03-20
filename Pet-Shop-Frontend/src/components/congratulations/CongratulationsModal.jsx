@@ -12,7 +12,7 @@ export default function CongratulationsModal({ setIsSuccess }) {
     setIsSuccess(false)
   }
   return (
-    <StyledContainer>
+    <StyledContainer active={setIsSuccess}>
       <TextContainer>
         <StyledTitle>Congratulations!</StyledTitle>
         <StyledText>

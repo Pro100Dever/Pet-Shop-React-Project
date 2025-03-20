@@ -34,3 +34,9 @@ export const SocialContainer = styled.div`
   display: flex;
   gap: 18px;
 `
+export const SociaLink = styled.a`
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.2s linear;
+  }
+`

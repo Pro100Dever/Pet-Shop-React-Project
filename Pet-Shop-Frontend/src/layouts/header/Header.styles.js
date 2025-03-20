@@ -44,7 +44,12 @@ export const StyledHeader = styled.header`
 `
 export const CartContainer = styled.div`
   position: relative;
+  &:hover {
+    transform: scale(1.03);
+    transition: all 0.2s linear;
+  }
 `
+
 export const CartCount = styled.span`
   display: flex;
   align-items: center;

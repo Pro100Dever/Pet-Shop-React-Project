@@ -14,5 +14,6 @@ export const StyledNavTreeLink = styled(NavLink)`
   &:hover {
     cursor: pointer;
     background: #f1f3f4;
+    transition: all 0.2s linear;
   }
 `

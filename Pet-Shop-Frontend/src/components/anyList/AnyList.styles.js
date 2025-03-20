@@ -24,6 +24,13 @@ export const StyledListItem = styled.li`
   max-width: 316px;
   width: 100%;
   z-index: 7;
+  transition: all 0.2s linear;
+  &:hover {
+    background: #f1f3f4;
+    transform: scale(1.05);
+    transition: all 0.2s linear;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
 `
 export const StyledDiscount = styled.div`
   position: absolute;
@@ -80,4 +87,17 @@ export const DiscountPrice = styled.p`
   font-weight: 600;
   font-size: 40px;
   line-height: 110%;
+`
+export const StyledLink = styled.li`
+  border-radius: 12px;
+  &:hover {
+    background: #f1f3f4;
+    transform: scale(1.05);
+    transition: all 0.2s linear;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    & p {
+      transform: translateY(-10px);
+      transition: all 0.2s linear;
+    }
+  }
 `
