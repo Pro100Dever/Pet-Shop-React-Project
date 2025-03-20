@@ -11,23 +11,19 @@ function filterProducts(products, filters) {
 
   return products
     .filter(product => {
-      // Получаем цену для сравнения, приоритет дисконтной цены
       const productPrice =
         product.discont_price !== null ? product.discont_price : product.price
 
       let isValid = true
 
-      // Если чекбокс активирован, показываем только товары с дисконтной ценой
       if (checked) {
         isValid = isValid && product.discont_price !== null
       }
 
-      // Фильтрация по минимальной цене
       if (priceMin !== null && priceMin !== undefined && priceMin !== '') {
         isValid = isValid && productPrice >= priceMin
       }
 
-      // Фильтрация по максимальной цене
       if (priceMax !== null && priceMax !== undefined && priceMax !== '') {
         isValid = isValid && productPrice <= priceMax
       }
