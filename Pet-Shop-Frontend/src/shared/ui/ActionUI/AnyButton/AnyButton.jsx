@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { StyledBtn } from './AnyButton.styles'
 
 export default function AnyButton({
+  handleAddClick,
   text,
   activeText = '',
   width = '100%',
@@ -22,6 +23,9 @@ export default function AnyButton({
   }
 
   function handleClick() {
+    if (handleAddClick) {
+      handleAddClick()
+    }
     getChexk()
   }
   useEffect(() => {

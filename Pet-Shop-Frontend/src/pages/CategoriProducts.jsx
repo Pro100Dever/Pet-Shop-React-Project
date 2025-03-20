@@ -5,6 +5,7 @@ import { StyledSection } from '../components/filter/Filter.styles'
 import Footer from '../layouts/footer/Footer'
 import Header from '../layouts/header/Header'
 import SectionTitle from '../shared/ui/ActionUI/SectionTitle'
+// import PathTree from '../components/pathTree/PathTree'
 
 export default function CategoriProducts() {
   const { categoryId } = useParams()
@@ -14,7 +15,7 @@ export default function CategoriProducts() {
       <Header />
       <main>
         <StyledSection>
-          <PathTree />
+          {/* <PathTree /> */}
           <SectionTitle text={categoryId} />
           <Filter />
           <AnyList hook='products' categoriId={categoryId} />
