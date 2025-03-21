@@ -90,6 +90,8 @@ export const DiscountPrice = styled.p`
 `
 export const StyledLink = styled.li`
   border-radius: 12px;
+  transition: all 0.1s linear;
+
   &:hover {
     background: #f1f3f4;
     transform: scale(1.05);
