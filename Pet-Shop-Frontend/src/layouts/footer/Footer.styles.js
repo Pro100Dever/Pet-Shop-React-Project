@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 
 export const StyledFooter = styled.footer`
-  padding: 0 40px;
-  margin: 80px auto 0;
+  padding: 40px 40px 80px;
+  margin: 0 auto;
 `
 export const StyledFooterContainer = styled.div`
   display: flex;

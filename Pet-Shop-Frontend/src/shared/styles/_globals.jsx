@@ -22,7 +22,6 @@ export const globalStyles = (
       }
       body {
         margin: 0 auto;
-        padding-bottom: 80px;
         min-height: 100vh;
       }
       main,
@@ -30,6 +29,8 @@ export const globalStyles = (
       footer {
         margin: 0 auto;
         max-width: 1440px;
+        border-left: 2px solid rgba(99, 99, 99, 0.2);
+        border-right: 2px solid rgba(99, 99, 99, 0.2);
       }
       main {
         display: flex;
