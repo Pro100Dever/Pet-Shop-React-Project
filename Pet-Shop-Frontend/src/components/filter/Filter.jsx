@@ -34,11 +34,13 @@ export default function Filter({ type = false }) {
         <StyledInput
           type='number'
           placeholder='from'
+          min='0'
           onChange={handleChange('priceMin')}
         />
         <StyledInput
           type='number'
           placeholder='to'
+          min='0'
           onChange={handleChange('priceMax')}
         />
       </StyledContainer>
