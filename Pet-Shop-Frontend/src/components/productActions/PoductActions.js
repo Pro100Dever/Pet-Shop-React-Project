@@ -83,6 +83,8 @@ export const StyledCountBtn = styled.button`
   border-radius: ${props =>
     props.side === 'left' ? '0 8px 8px 0' : ' 8px 0 0 8px'};
   border: 1px solid #dddddd;
+  transition: all 0.1s linear;
+
   &:hover {
     cursor: pointer;
     background-color: rgba(8, 8, 8, 0.07);

@@ -44,6 +44,8 @@ export const StyledHeader = styled.header`
 `
 export const CartContainer = styled.div`
   position: relative;
+  transition: all 0.1s linear;
+
   &:hover {
     transform: scale(1.03);
     transition: all 0.2s linear;

@@ -29,7 +29,7 @@ export const CloseIcon = styled.img`
   &:hover {
     cursor: pointer;
     transform: scale(1.2);
-    transition: all 0.1s linear;
+    transition: all 0.2s linear;
   }
 `
 export const StyledTitle = styled.h3`

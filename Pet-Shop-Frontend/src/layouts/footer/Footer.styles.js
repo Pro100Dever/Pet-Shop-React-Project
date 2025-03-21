@@ -35,6 +35,8 @@ export const SocialContainer = styled.div`
   gap: 18px;
 `
 export const SociaLink = styled.a`
+  transition: all 0.1s linear;
+
   &:hover {
     transform: scale(1.05);
     transition: all 0.2s linear;

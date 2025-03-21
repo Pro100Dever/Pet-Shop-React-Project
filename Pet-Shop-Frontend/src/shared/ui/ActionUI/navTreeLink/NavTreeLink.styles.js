@@ -11,6 +11,8 @@ export const StyledNavTreeLink = styled(NavLink)`
   border: 1px solid #dddddd;
   border-radius: 8px;
   min-width: fit-content;
+  transition: all 0.1s linear;
+
   &:hover {
     cursor: pointer;
     background: #f1f3f4;
