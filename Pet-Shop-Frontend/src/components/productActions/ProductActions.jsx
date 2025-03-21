@@ -73,6 +73,7 @@ export default function ProductActions({ product }) {
           <StyledCountBtn type='button' onClick={handleMinus} side='right' />
           <StyledInput
             type='number'
+            min='1'
             {...register('count', { min: 1, max: 99 })}
             onChange={handleChange}
           />
